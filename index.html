@@ -1,0 +1,3848 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pusat STIFIn - Tes Sidik Jari, Kenali Potensi Genetik</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Midtrans Payment Gateway -->
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="Mid-client-OuCLJ_tZuAuqBmKV"></script>
+    
+    <style>
+        /* CSS Variables - NUANSA MERAH */
+        :root {
+            --primary: #b22222;
+            --primary-dark: #8b1a1a;
+            --primary-light: #cd5c5c;
+            --accent: #ff6b6b;
+            --accent-soft: #ffe6e6;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-800: #1F2937;
+            --gradient-primary: linear-gradient(135deg, #b22222, #dc143c);
+            --gradient-dark: linear-gradient(135deg, #8b1a1a, #b22222);
+            --shadow-sm: 0 10px 30px rgba(178, 34, 34, 0.05);
+            --shadow-md: 0 20px 40px rgba(178, 34, 34, 0.1);
+            --shadow-lg: 0 30px 60px rgba(178, 34, 34, 0.15);
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 14px;
+        }
+
+        body {
+            font-family: 'Nunito', 'Poppins', sans-serif;
+            line-height: 1.5;
+            color: #1e1e2f;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Image Placeholder */
+        .img-placeholder {
+            background: linear-gradient(135deg, #ffe6e6, #ffb6b6);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b22222;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 2px dashed #cd5c5c;
+            min-height: 150px;
+            width: 100%;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .img-placeholder:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-md);
+        }
+
+        .img-placeholder::before {
+            content: "🖼️ " attr(data-text);
+            color: #b22222;
+            font-style: italic;
+            animation: pulse 2s infinite;
+        }
+
+        .img-placeholder.small {
+            min-height: 80px;
+        }
+
+        .img-placeholder.circle {
+            border-radius: 50%;
+            min-height: 120px;
+            max-width: 120px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 8px 0;
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.5s ease;
+            font-size: 0.9rem;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 100s linear infinite;
+        }
+
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .marquee-item {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .marquee-item i {
+            margin: 0 6px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-2px); }
+        }
+
+        .marquee-item .btn-outline-light {
+            border: 1px solid white;
+            border-radius: 999px;
+            padding: 3px 12px;
+            margin-left: 10px;
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+
+        .marquee-item .btn-outline-light:hover {
+            background-color: white;
+            color: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .separator {
+            color: rgba(255,255,255,0.3);
+            margin: 0 8px;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #ffe6e6;
+            background: white;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            transition: transform 0.3s ease;
+            max-width: 120px;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1e293b;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Instagram Button */
+        .ig-button-top {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .ig-button-top:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .ig-button-top i {
+            transition: all 0.3s ease;
+        }
+
+        .ig-button-top:hover i {
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%);
+            padding: 50px 0;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(220,20,60,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            flex: 1;
+            animation: slideInLeft 1s ease;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: var(--gradient-dark);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 3s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 8px rgba(178,34,34,0.3); }
+            50% { text-shadow: 0 0 16px rgba(220,20,60,0.5); }
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: #334155;
+            margin-bottom: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-content p:hover {
+            transform: translateX(8px);
+        }
+
+        .hero-image {
+            flex: 1;
+            animation: slideInRight 1s ease;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 35px 0 15px;
+            background: var(--gradient-dark);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #4b5563;
+            margin-bottom: 25px;
+        }
+
+        /* Stats Cards */
+        .stats-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        @media (min-width: 768px) {
+            .stats-cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #ffcdcd;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .stat-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .stat-card p {
+            color: #334155;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .stat-card strong {
+            color: var(--primary);
+        }
+
+        /* Feature Tags */
+        .feature-tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 15px 0 30px;
+        }
+
+        .feature-tag {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+            border: none;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-tag::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .feature-tag:hover::before {
+            width: 250px;
+            height: 250px;
+        }
+
+        .feature-tag:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: var(--shadow-md);
+        }
+
+        .badge-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            display: inline-block;
+            margin: 15px 0;
+            animation: pulse 2s infinite;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .badge-primary:hover {
+            background: var(--gradient-primary);
+            transform: scale(1.03);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Apa Itu STIFIn Section */
+        .apa-itu-section {
+            background: #fff5f5;
+            border-radius: 40px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .apa-itu-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .apa-itu-section p {
+            font-size: 1rem;
+            color: #334155;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        /* Diagram Mesin Kecerdasan */
+        .mesin-kecerdasan {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0 15px;
+        }
+
+        .mesin-kecerdasan img {
+            max-width: 75%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            margin: 0 auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .mesin-kecerdasan img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Personality Cards */
+        .personality-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        @media (min-width: 768px) {
+            .personality-list {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        .personality-card {
+            background: white;
+            border-radius: 25px;
+            padding: 15px 12px;
+            box-shadow: var(--shadow-md);
+            border: 2px solid #ffcdcd;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: block;
+        }
+
+        .personality-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .personality-card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .personality-card:hover::before {
+            width: 250px;
+            height: 250px;
+        }
+
+        .personality-card .letter {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .personality-card .title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .personality-card .desc {
+            font-size: 0.8rem;
+            color: #64748b;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Warna untuk setiap tipe */
+        .personality-card.sensing .letter { color: #b22222; }
+        .personality-card.sensing { border-color: #b22222; }
+        .personality-card.sensing:hover { background: linear-gradient(135deg, #b22222, #dc143c); }
+        .personality-card.sensing:hover .letter,
+        .personality-card.sensing:hover .title,
+        .personality-card.sensing:hover .desc { color: white; }
+
+        .personality-card.thinking .letter { color: #000000; }
+        .personality-card.thinking { border-color: #000000; }
+        .personality-card.thinking:hover { background: linear-gradient(135deg, #333333, #000000); }
+        .personality-card.thinking:hover .letter,
+        .personality-card.thinking:hover .title,
+        .personality-card.thinking:hover .desc { color: white; }
+
+        .personality-card.intuiting .letter { color: #1e3a8a; }
+        .personality-card.intuiting { border-color: #1e3a8a; }
+        .personality-card.intuiting:hover { background: linear-gradient(135deg, #1e3a8a, #2563eb); }
+        .personality-card.intuiting:hover .letter,
+        .personality-card.intuiting:hover .title,
+        .personality-card.intuiting:hover .desc { color: white; }
+
+        .personality-card.feeling .letter { color: #166534; }
+        .personality-card.feeling { border-color: #166534; }
+        .personality-card.feeling:hover { background: linear-gradient(135deg, #166534, #22c55e); }
+        .personality-card.feeling:hover .letter,
+        .personality-card.feeling:hover .title,
+        .personality-card.feeling:hover .desc { color: white; }
+
+        .personality-card.insting .letter { color: #b45309; }
+        .personality-card.insting { border-color: #b45309; }
+        .personality-card.insting:hover { background: linear-gradient(135deg, #b45309, #f59e0b); }
+        .personality-card.insting:hover .letter,
+        .personality-card.insting:hover .title,
+        .personality-card.insting:hover .desc { color: white; }
+
+        /* Manfaat Cards */
+        .manfaat-slider-container {
+            position: relative;
+            margin: 30px 0;
+            overflow: hidden;
+            cursor: grab;
+            user-select: none;
+            padding: 8px 0;
+        }
+
+        .manfaat-slider-container:active {
+            cursor: grabbing;
+        }
+
+        .manfaat-slider-track {
+            display: flex;
+            gap: 16px;
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+
+        .manfaat-card {
+            flex: 0 0 calc(50% - 8px);
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid #ffcdcd;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .manfaat-card {
+                flex: 0 0 calc(33.333% - 11px);
+            }
+        }
+
+        .manfaat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg), 0 15px 30px rgba(178,34,34,0.2);
+            border-color: var(--primary);
+        }
+
+        .manfaat-card .manfaat-image {
+            width: 100%;
+            height: 160px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #ffe6e6, #ffcdcd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 2.5rem;
+        }
+
+        .manfaat-card .manfaat-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .manfaat-card:hover .manfaat-image img {
+            transform: scale(1.1);
+        }
+
+        .manfaat-card .manfaat-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(178,34,34,0.2), transparent);
+            pointer-events: none;
+        }
+
+        .manfaat-card .manfaat-content {
+            padding: 16px;
+            background: white;
+            position: relative;
+        }
+
+        .manfaat-card .manfaat-content h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .manfaat-card .manfaat-content p {
+            color: #334155;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .manfaat-card .manfaat-tag {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        /* Package Cards */
+        .package-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        @media (min-width: 768px) {
+            .package-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 28px;
+            padding: 25px 20px;
+            border: 1px solid #ffcdcd;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.5s ease;
+            animation-fill-mode: both;
+        }
+
+        .package-card:nth-child(1) { animation-delay: 0.1s; }
+        .package-card:nth-child(2) { animation-delay: 0.2s; }
+        .package-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .package-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--primary);
+        }
+
+        .package-sub {
+            color: #64748b;
+            font-size: 1rem;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #ffcdcd;
+        }
+
+        .package-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 4px;
+        }
+
+        .package-price small {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #64748b;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .package-dp {
+            background: #ffe6e6;
+            border-radius: 25px;
+            padding: 8px 14px;
+            display: inline-block;
+            margin: 12px 0 16px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 16px 0;
+        }
+
+        .feature-list li {
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .feature-list li:hover {
+            transform: translateX(8px);
+        }
+
+        .feature-list i {
+            color: var(--primary);
+            width: 18px;
+            font-size: 1rem;
+        }
+
+        .feature-list li:hover i {
+            color: var(--primary-light);
+        }
+
+        .package-footer {
+            margin: 16px 0;
+            font-size: 0.8rem;
+            color: #64748b;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .btn-package {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 16px 0 8px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+        }
+
+        .btn-package:hover {
+            background: var(--gradient-primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Promotor Section */
+        .promotor-section {
+            background: #fff5f5;
+            border-radius: 40px;
+            padding: 30px;
+            margin: 30px 0;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promotor-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(178,34,34,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .promotor-image {
+            flex: 1;
+            min-width: 220px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .photo-frame {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 4px solid white;
+            background: white;
+            transition: all 0.3s ease;
+            aspect-ratio: 4/5;
+            margin: 0 auto;
+        }
+
+        .photo-frame:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-lg), 0 0 0 3px var(--primary);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .promotor-info {
+            flex: 2;
+            position: relative;
+            z-index: 1;
+        }
+
+        .promotor-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 6px;
+            animation: glow 3s infinite;
+        }
+
+        .promotor-title {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .promotor-info p {
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        .promotor-info .btn-container {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .btn-wa-promotor {
+            background: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-wa-promotor:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-ig-promotor {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-ig-promotor:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: #fff5f5;
+            border-radius: 40px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .gallery-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 0 25px 0;
+            background: var(--gradient-dark);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .gallery-subtitle {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 25px 0 15px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .gallery-subtitle i {
+            font-size: 1.5rem;
+        }
+
+        .category-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .gallery-slider-container {
+            position: relative;
+            margin-bottom: 30px;
+            overflow: hidden;
+            cursor: grab;
+            user-select: none;
+            padding: 8px 0;
+        }
+
+        .gallery-slider-container:active {
+            cursor: grabbing;
+        }
+
+        .gallery-slider-track {
+            display: flex;
+            gap: 16px;
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+
+        .gallery-item {
+            flex: 0 0 calc(50% - 8px);
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            aspect-ratio: 1/1;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #ffe6e6, #ffcdcd);
+        }
+
+        @media (min-width: 768px) {
+            .gallery-item {
+                flex: 0 0 calc(33.333% - 11px);
+            }
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .gallery-item.foto-item {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .gallery-item.video-item {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffe6e6, #ffcdcd);
+        }
+
+        .gallery-item.video-item video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item.video-item.playing video {
+            opacity: 1;
+            object-fit: contain;
+            background: black;
+        }
+
+        .gallery-item.video-item .video-thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .gallery-item.video-item.playing .video-thumbnail {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .video-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 20px;
+            box-shadow: var(--shadow-lg);
+            z-index: 5;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item.video-item.playing .video-icon {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .gallery-item:hover .video-icon {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: var(--primary);
+            color: white;
+        }
+
+        .mute-btn {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            width: 35px;
+            height: 35px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border: 2px solid white;
+        }
+
+        .gallery-item.video-item.playing .mute-btn {
+            opacity: 1;
+        }
+
+        .mute-btn:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+
+        /* Testimonial Cards */
+        .testimonial-slider-container {
+            position: relative;
+            margin: 30px 0;
+            overflow: hidden;
+            cursor: grab;
+            user-select: none;
+            padding: 8px 0;
+        }
+
+        .testimonial-slider-container:active {
+            cursor: grabbing;
+        }
+
+        .testimonial-slider-track {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+
+        .testimonial-card {
+            flex: 0 0 100%;
+            background: white;
+            border-radius: 20px;
+            padding: 25px 20px;
+            border: 1px solid #ffcdcd;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .testimonial-card {
+                flex: 0 0 calc(33.333% - 14px);
+            }
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        .testimonial-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .testimonial-quote {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #334155;
+            margin-bottom: 16px;
+            font-style: italic;
+            position: relative;
+            padding-left: 12px;
+            flex-grow: 1;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -8px;
+            font-size: 2rem;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .testimonial-author {
+            margin-top: auto;
+            border-top: 1px solid #ffcdcd;
+            padding-top: 12px;
+        }
+
+        .testimonial-author strong {
+            color: var(--primary);
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .testimonial-author small {
+            color: #64748b;
+            font-size: 0.75rem;
+        }
+
+        .testimonial-global {
+            text-align: center;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-top: 8px;
+        }
+
+        /* Slider Navigation */
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin: 25px 0 8px;
+        }
+
+        .nav-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #ffcdcd;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        .nav-button:hover:not(:disabled) {
+            background: var(--gradient-primary);
+            color: white;
+            transform: scale(1.1);
+            border-color: transparent;
+        }
+
+        .nav-button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .progress-container {
+            width: 180px;
+            position: relative;
+        }
+
+        .progress-bar-bg {
+            height: 3px;
+            background: #ffcdcd;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--gradient-primary);
+            width: 0;
+            transition: width 0.3s ease;
+        }
+
+        .slide-counter {
+            text-align: center;
+            margin-top: 6px;
+            color: #64748b;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .section-info {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+        }
+
+        .section-info i {
+            color: var(--primary);
+            margin-right: 4px;
+        }
+
+        .category-separator {
+            margin: 25px 0;
+            border-top: 2px dashed #ffcdcd;
+        }
+
+        /* Lightbox untuk foto */
+        .gallery-lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery-lightbox.active {
+            display: flex;
+        }
+
+        .gallery-lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .gallery-lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .gallery-lightbox-close {
+            position: absolute;
+            top: -35px;
+            right: 0;
+            width: 35px;
+            height: 35px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-lightbox-close:hover {
+            background: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        /* Video Container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            background: linear-gradient(135deg, #ffe6e6, #ffcdcd);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .video-container video,
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            background: linear-gradient(135deg, #ffe6e6, #ffcdcd);
+            cursor: pointer;
+        }
+
+        .video-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: #fff5f5;
+            border-radius: 40px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ffcdcd;
+            padding: 16px 0;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            padding-left: 16px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 12px;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question:hover i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            color: #334155;
+            margin-top: 10px;
+            display: none;
+            animation: slideDown 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Sticky Bottom */
+        .sticky-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--gradient-primary);
+            padding: 12px 0;
+            z-index: 999;
+            box-shadow: 0 -4px 15px rgba(178,34,34,0.1);
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        .sticky-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            color: white;
+        }
+
+        .sticky-container h3 {
+            font-size: 1.1rem;
+            animation: pulse 2s infinite;
+        }
+
+        .btn-wa-sticky {
+            background: white;
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-wa-sticky:hover {
+            transform: scale(1.1) rotate(1deg);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-wa-sticky i {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-wa-sticky:hover i {
+            transform: rotate(360deg) scale(1.2);
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 80px;
+            right: 25px;
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-top:hover {
+            transform: scale(1.1) rotate(360deg);
+        }
+
+        /* Video Section */
+        .video-section {
+            margin: 30px 0;
+        }
+
+        /* Ripple Effect */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: translate(-50%, -50%) scale(0);
+            animation: ripple-animation 0.6s ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: translate(-50%, -50%) scale(15);
+                opacity: 0;
+            }
+        }
+
+        /* Utility */
+        .text-gradient {
+            background: var(--gradient-dark);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mt-2 { margin-top: 0.4rem; }
+        .mb-2 { margin-bottom: 0.4rem; }
+        .mt-4 { margin-top: 0.8rem; }
+        .mb-4 { margin-bottom: 0.8rem; }
+        .text-center { text-align: center; }
+
+        /* ==================== BOOKING MODAL STYLES ==================== */
+        .booking-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 10001;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .booking-modal.active {
+            display: flex;
+        }
+
+        .booking-form {
+            background: white;
+            border-radius: 40px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            animation: slideInUp 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .booking-form h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .booking-form .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .booking-form .close-btn:hover {
+            background: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #334155;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ffcdcd;
+            border-radius: 20px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: #fff5f5;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* MODIFIKASI: Tanggal lahir row dengan 3 kolom */
+        .form-row-tanggal {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        .package-selection {
+            background: #ffe6e6;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .package-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .package-option:hover {
+            background: white;
+        }
+
+        .package-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary);
+        }
+
+        .package-option .details {
+            flex: 1;
+        }
+
+        .package-option .name {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .package-option .price {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .total-section {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .total-section h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .btn-booking {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-booking:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            box-shadow: var(--shadow-lg);
+            z-index: 10002;
+            display: none;
+            animation: slideInRight 0.3s ease;
+        }
+
+        .notification.show {
+            display: block;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .payment-methods img {
+            height: 40px;
+            border-radius: 10px;
+            background: white;
+            padding: 5px;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ==================== RESPONSIVE FOR MOBILE ==================== */
+        @media screen and (max-width: 768px) {
+            .top-bar {
+                font-size: 11px;
+                padding: 6px 0;
+            }
+            
+            .marquee-item {
+                margin-right: 12px;
+            }
+            
+            .marquee-item .btn-outline-light {
+                padding: 2px 8px;
+                font-size: 10px;
+            }
+            
+            .navbar {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px 0;
+            }
+            
+            .logo {
+                max-width: 100px;
+            }
+            
+            .nav-links {
+                gap: 16px;
+            }
+            
+            .nav-links a {
+                font-size: 13px;
+            }
+            
+            .ig-button-top {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+            
+            .hero-section {
+                padding: 30px 0;
+            }
+            
+            .hero-container {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 16px;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 0.95rem;
+            }
+            
+            .badge-primary {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+            
+            .hero-image img {
+                max-width: 70%;
+                margin: 0 auto;
+            }
+            
+            .stats-cards {
+                gap: 12px;
+            }
+            
+            .stat-card {
+                padding: 20px;
+            }
+            
+            .stat-card h3 {
+                font-size: 1.4rem;
+            }
+            
+            .feature-tags {
+                gap: 8px;
+            }
+            
+            .feature-tag {
+                padding: 5px 12px;
+                font-size: 0.85rem;
+            }
+            
+            .apa-itu-section {
+                padding: 20px;
+            }
+            
+            .apa-itu-section h2 {
+                font-size: 1.6rem;
+            }
+            
+            .mesin-kecerdasan img {
+                max-width: 90% !important;
+            }
+            
+            .personality-list {
+                gap: 12px;
+            }
+            
+            .personality-card {
+                padding: 12px 8px;
+            }
+            
+            .personality-card .letter {
+                font-size: 1.6rem;
+            }
+            
+            .personality-card .title {
+                font-size: 0.9rem;
+            }
+            
+            .personality-card .desc {
+                font-size: 0.7rem;
+            }
+            
+            .video-section {
+                padding: 16px 12px !important;
+            }
+            
+            .video-section h2 {
+                font-size: 1.5rem !important;
+            }
+            
+            .manfaat-card {
+                flex: 0 0 85%;
+            }
+            
+            .manfaat-card .manfaat-image {
+                height: 130px;
+            }
+            
+            .manfaat-card .manfaat-content h3 {
+                font-size: 1rem;
+            }
+            
+            .manfaat-card .manfaat-content p {
+                font-size: 0.8rem;
+            }
+            
+            .package-card {
+                padding: 20px 15px;
+            }
+            
+            .package-price {
+                font-size: 1.8rem;
+            }
+            
+            .promotor-section {
+                padding: 20px;
+                gap: 16px;
+            }
+            
+            .photo-frame {
+                max-width: 180px;
+            }
+            
+            .promotor-info h2 {
+                font-size: 1.6rem;
+            }
+            
+            .gallery-section {
+                padding: 20px;
+            }
+            
+            .gallery-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .gallery-item {
+                flex: 0 0 85%;
+            }
+            
+            .testimonial-card {
+                flex: 0 0 85%;
+            }
+            
+            .slider-nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .progress-container {
+                width: 140px;
+            }
+            
+            .nav-button {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .faq-section {
+                padding: 20px;
+            }
+            
+            .faq-section h2 {
+                font-size: 1.6rem;
+            }
+            
+            .faq-section h3 {
+                font-size: 1.1rem !important;
+            }
+            
+            .faq-question {
+                font-size: 0.9rem;
+            }
+            
+            .sticky-container {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .sticky-container h3 {
+                font-size: 1rem;
+            }
+            
+            .btn-wa-sticky {
+                padding: 6px 16px;
+                font-size: 0.85rem;
+            }
+            
+            .scroll-top {
+                bottom: 100px;
+                right: 15px;
+                width: 38px;
+                height: 38px;
+            }
+            
+            .gallery-lightbox-close {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .container {
+                padding: 0 12px;
+            }
+
+            /* Booking form mobile */
+            .booking-form {
+                padding: 25px;
+            }
+
+            .booking-form h2 {
+                font-size: 1.6rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row-tanggal {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            html {
+                font-size: 13px;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.6rem;
+            }
+            
+            .mesin-kecerdasan img {
+                max-width: 95% !important;
+            }
+            
+            .personality-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .manfaat-card {
+                flex: 0 0 95%;
+            }
+            
+            .gallery-item {
+                flex: 0 0 95%;
+            }
+            
+            .testimonial-card {
+                flex: 0 0 95%;
+            }
+            
+            .promotor-info .btn-container {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .btn-wa-promotor,
+            .btn-ig-promotor {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .stat-card {
+                padding: 16px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="marquee">
+            <div class="marquee-content">
+                <span class="marquee-item">
+                    <span>Buka layanan setiap Senin - Sabtu</span>
+                    <i class="far fa-clock"></i>
+                    <span>Pukul 09.00 - 21.00 WIB</span>
+                    <a href="https://wa.link/p70i6w" target="_blank" class="btn-outline-light"><i class="fab fa-whatsapp"></i> Hubungi Admin</a>
+                </span>
+                <span class="separator">•</span>
+                <span class="marquee-item">
+                    <span>Buka layanan setiap Senin - Sabtu</span>
+                    <i class="far fa-clock"></i>
+                    <span>Pukul 09.00 - 21.00 WIB</span>
+                    <a href="https://wa.link/p70i6w" target="_blank" class="btn-outline-light"><i class="fab fa-whatsapp"></i> Hubungi Admin</a>
+                </span>
+                <span class="separator">•</span>
+                <span class="marquee-item">
+                    <span>Buka layanan setiap Senin - Sabtu</span>
+                    <i class="far fa-clock"></i>
+                    <span>Pukul 09.00 - 21.00 WIB</span>
+                    <a href="https://wa.link/p70i6w" target="_blank" class="btn-outline-light"><i class="fab fa-whatsapp"></i> Hubungi Admin</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="icon_stifin-1024x531.png" alt="Logo STIFIn" style="width: 100%; height: auto; max-width: 120px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="img-placeholder small" style="display: none; width: 120px; height: 40px;" data-text="Logo STIFIn"></div>
+            </div>
+            <div class="nav-links">
+                <a href="#stifin">STIFIn</a>
+                <a href="#harga">Harga</a>
+                <a href="#promotor">Promotor</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="nav-right">
+                <a href="https://www.instagram.com/guebangetid/" target="_blank" class="ig-button-top">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="stifin">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Pusat STIFIn<br>Tes STIFIn: Cara Kilat Kenali Karakter dan Potensi</h1>
+                <p><strong>Setiap orang itu unik</strong>, karena otaknya bekerja dengan cara yang berbeda-beda. <strong>STIFIn bantu kamu menemukan bagaimana otakmu bekerja dan kekuatan genetikmu yang mungkin belum kamu sadari.</strong></p>
+                <p>STIFIn bantu kenali potensi diri lewat <strong>5 Mesin Kecerdasan dan 9 Personaliti Genetik</strong>, dengan pendekatan <strong>FOKUS—SATU—HEBAT</strong>. Hasilnya dapat diaplikasikan untuk bidang Belajar, Kerja, Hubungan, Parenting dan Gaya Hidup.</p>
+                
+                <div class="badge-primary">STIFIn mengungkap cara kerja otak dengan validitas hingga 95%.</div>
+                <p class="mt-4"><i class="fas fa-check-circle" style="color: #b22222;"></i> Tes cukup sekali seumur hidup, hasilnya berlaku selamanya</p>
+            </div>
+            <div class="hero-image">
+                <img src="stifin.png" alt="Ilustrasi Otak STIFIn" style="width: 100%; height: auto; border-radius: 20px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="img-placeholder" style="display: none;" data-text="Ilustrasi Otak STIFIn"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- STATS CARDS -->
+        <div class="stats-cards">
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Akurat</h3>
+                <p>STIFIn mengungkap cara kerja otak dengan validitasi hingga 95%.<br>Tes cukup sekali seumur hidup, hasilnya berlaku selamanya</p>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>Simple</h3>
+                <p>STIFIn bantu kenali potensi diri lewat 5 Mesin Kecerdasan dan 9 Personaliti Genetik, dengan pendekatan <strong>FOKUS—SATU—HEBAT</strong>.</p>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                <h3>Aplikatif</h3>
+                <p>Hasil Tes STIFIn dapat di aplikasikan untuk di bidang Belajar, Kerja, Hubungan, Parenting dan Gaya Hidup.</p>
+            </div>
+        </div>
+
+        <!-- FEATURE TAGS -->
+        <div class="feature-tags">
+            <span class="feature-tag">Fokus Satu Hebat</span>
+            <span class="feature-tag">1x Seumur Hidup</span>
+            <span class="feature-tag">Multi Angle Field</span>
+        </div>
+
+        <!-- APA ITU STIFIn SECTION -->
+        <div class="apa-itu-section" data-aos="fade-up">
+            <h2>Apa Itu Konsep STIFIn?</h2>
+            <p><strong>STIFIn</strong> adalah tes mengenal potensi diri berdasarkan cara kerja otak. Akurat, mudah dipahami, dan cukup sekali seumur hidup. Bantu kamu fokus, berkembang, dan jadi versi terbaik diri.</p>
+            
+            <div class="mesin-kecerdasan">
+                <img src="mesin_kecerdasan_stifin.png" alt="Mesin Kecerdasan STIFIn" style="max-width: 75%; height: auto; border-radius: 20px; box-shadow: var(--shadow-lg); margin: 0 auto; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="img-placeholder" style="display: none; width: 100%;" data-text="Mesin Kecerdasan STIFIn"></div>
+            </div>
+            
+            <!-- PERSONALITY CARDS -->
+            <div class="personality-list">
+                <a href="sensing.html" class="personality-card sensing">
+                    <div class="letter">S</div>
+                    <div class="title">Sensing</div>
+                    <div class="desc">Memori & Rajin</div>
+                </a>
+                
+                <a href="thinking.html" class="personality-card thinking">
+                    <div class="letter">T</div>
+                    <div class="title">Thinking</div>
+                    <div class="desc">Analitis & Pandai</div>
+                </a>
+                
+                <a href="intuiting.html" class="personality-card intuiting">
+                    <div class="letter">I</div>
+                    <div class="title">Intuiting</div>
+                    <div class="desc">Kreatif & Inovatif</div>
+                </a>
+                
+                <a href="feeling.html" class="personality-card feeling">
+                    <div class="letter">F</div>
+                    <div class="title">Feeling</div>
+                    <div class="desc">Emosi & Hubungan</div>
+                </a>
+                
+                <a href="insting.html" class="personality-card insting">
+                    <div class="letter">In</div>
+                    <div class="title">Insting</div>
+                    <div class="desc">Naluri & Serbabisa</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="video-section" data-aos="zoom-in" style="background: #fff5f5; padding: 25px 15px; border-radius: 35px; margin: 30px 0;">
+            <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 20px; color: var(--primary); text-align: center;">
+                Apa itu Konsep STIFIn?
+            </h2>
+            
+            <div style="display: flex; justify-content: center;">
+                <div style="width: 100%; max-width: 400px;">
+                    <div class="video-container">
+                        <video controls style="width: 100%; height: 100%; object-fit: cover;" id="mainVideo">
+                            <source src="videoplayback.1771497511182.publer.com.mp4" type="video/mp4">
+                            <source src="videoplayback.mp4" type="video/mp4">
+                            <source src="WhatsApp Video 2026-02-18 at 14.58.12.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; color: #64748b; margin-top: 16px; font-size: 0.85rem; font-style: italic;">
+                <i class="fas fa-play-circle" style="color: #b22222;"></i> Video penjelasan STIFIn
+            </p>
+        </div>
+
+        <!-- Manfaat Section -->
+        <h2 class="section-title" data-aos="fade-up">Manfaat Tes STIFIn</h2>
+        <p data-aos="fade-up" data-aos-delay="100">STIFIn adalah cara mengenal kecerdasan dan potensi diri dengan melihat bagian otak dominan lewat <strong>scan 10 sidik jari</strong></p>
+        
+        <!-- Manfaat Slider Container -->
+        <div class="manfaat-slider-container" id="manfaatSlider">
+            <div class="manfaat-slider-track" id="manfaatTrack">
+                <div class="manfaat-card">
+                    <div class="manfaat-image">
+                        <img src="e14a8371f954ca9c153ba39cb4af9b87.jpg" alt="Diri Sendiri" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'">
+                    </div>
+                    <div class="manfaat-content">
+                        <h3>Diri Sendiri</h3>
+                        <p>STIFIn membantu mengenali karakter diri, membangun rasa percaya diri, dan mengoptimalkan potensi genetik</p>
+                        <span class="manfaat-tag">01</span>
+                    </div>
+                </div>
+                
+                <div class="manfaat-card">
+                    <div class="manfaat-image">
+                        <img src="ab9a6f5aca7ee4b8a9295d988dcfa8ec.jpg" alt="Anak" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-child\'></i>'">
+                    </div>
+                    <div class="manfaat-content">
+                        <h3>Anak</h3>
+                        <p>STIFIn membantu orang tua memahami pola asuh sesuai karakter anak, mengoptimalkan minat dan bakatnya</p>
+                        <span class="manfaat-tag">02</span>
+                    </div>
+                </div>
+                
+                <div class="manfaat-card">
+                    <div class="manfaat-image">
+                        <img src="f7633e32750d2b32a7d63e31d7b28a2b.jpg" alt="Pasangan" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-heart\'></i>'">
+                    </div>
+                    <div class="manfaat-content">
+                        <h3>Pasangan</h3>
+                        <p>STIFIn membantu pasangan memahami cara berpikir, berperilaku, dan pola komunikasi satu sama lain</p>
+                        <span class="manfaat-tag">03</span>
+                    </div>
+                </div>
+                
+                <div class="manfaat-card">
+                    <div class="manfaat-image">
+                        <img src="54953ccbea5b0d2072d5562b97ac9b86.jpg" alt="Profesi dan Karier" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-briefcase\'></i>'">
+                    </div>
+                    <div class="manfaat-content">
+                        <h3>Profesi dan Karier</h3>
+                        <p>STIFIn membantu mengarahkan pilihan karir yang sesuai dengan potensi genetik dan meningkatkan produktivitas</p>
+                        <span class="manfaat-tag">04</span>
+                    </div>
+                </div>
+                
+                <div class="manfaat-card">
+                    <div class="manfaat-image">
+                        <img src="804af393f7b71e240ea8e73a4b0cac0a.jpg" alt="Pengembangan Diri" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-graduation-cap\'></i>'">
+                    </div>
+                    <div class="manfaat-content">
+                        <h3>Pengembangan Diri</h3>
+                        <p>STIFIn membantu menemukan metode belajar yang sesuai dengan karakter untuk meningkatkan pengembangan diri</p>
+                        <span class="manfaat-tag">05</span>
+                    </div>
+                </div>
+                
+                <div class="manfaat-card">
+                    <div class="manfaat-image">
+                        <img src="aceafbcbab75914102967bfc8d453e89.jpg" alt="Kesehatan Mental" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-brain\'></i>'">
+                    </div>
+                    <div class="manfaat-content">
+                        <h3>Kesehatan Mental</h3>
+                        <p>STIFIn membantu memahami pola pikir dan emosi, meningkatkan resiliensi dan kesejahteraan mental</p>
+                        <span class="manfaat-tag">06</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slider Navigation -->
+        <div class="slider-nav">
+            <button class="nav-button" id="manfaatPrevBtn"><i class="fas fa-chevron-left"></i></button>
+            <div class="progress-container">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar" id="manfaatProgressBar" style="width: 33.33%"></div>
+                </div>
+                <div class="slide-counter">
+                    <span id="manfaatCurrentSlide">1</span> / <span id="manfaatTotalSlides">2</span>
+                </div>
+            </div>
+            <button class="nav-button" id="manfaatNextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="section-info">
+            <i class="fas fa-arrows-alt-h"></i> Geser ke kiri/kanan untuk melihat lebih banyak
+        </div>
+
+        <!-- Package Section -->
+        <h2 class="section-title" id="harga" data-aos="fade-up">Pilih Paket Tes STIFIn</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Sesuai dengan kebutuhan kamu</p>
+        
+        <div class="package-grid">
+            <!-- Personal / Pasangan -->
+            <div class="package-card" data-aos="flip-left" data-aos-delay="100">
+                <h3>Personal atau Pasangan</h3>
+                <div class="package-sub">1 - 2 Orang</div>
+                <div class="package-price">Rp 650.000 <small>Per orang</small></div>
+                <div class="package-dp"><i class="fas fa-money-bill-wave"></i> Hanya membayar DP Rp 100.000</div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Tes STIFIn</li>
+                    <li><i class="fas fa-check-circle"></i> Sertifikat</li>
+                    <li><i class="fas fa-check-circle"></i> Penjelasan dan Konsultasi</li>
+                    <li><i class="fas fa-check-circle"></i> E-Book Hasil Tes STIFIn</li>
+                    <li><i class="fas fa-check-circle"></i> E-Book Penjelasan</li>
+                    <li><i class="fas fa-check-circle"></i> Tanya Jawab</li>
+                    <li><i class="fas fa-check-circle"></i> Tempat sesuai permintaan</li>
+                </ul>
+                <button class="btn-package" onclick="openBookingModal('Personal/Pasangan', 650000)">Pilih Paket & Booking</button>
+                <div class="package-footer">*Harga sudah termasuk kunjungan lokasi kamu</div>
+            </div>
+            
+            <!-- Keluarga / Kelompok -->
+            <div class="package-card" data-aos="flip-left" data-aos-delay="200">
+                <h3>Keluarga atau Kelompok</h3>
+                <div class="package-sub">3 - 9 Orang</div>
+                <div class="package-price">Rp 600.000 <small>Per orang</small></div>
+                <div class="package-dp"><i class="fas fa-money-bill-wave"></i> Hanya membayar DP Rp 100.000</div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Tes STIFIn</li>
+                    <li><i class="fas fa-check-circle"></i> Sertifikat</li>
+                    <li><i class="fas fa-check-circle"></i> Penjelasan dan Konsultasi</li>
+                    <li><i class="fas fa-check-circle"></i> E-Book Hasil Tes STIFIn</li>
+                    <li><i class="fas fa-check-circle"></i> E-Book Penjelasan</li>
+                    <li><i class="fas fa-check-circle"></i> Tanya Jawab</li>
+                    <li><i class="fas fa-check-circle"></i> Tempat sesuai permintaan</li>
+                </ul>
+                <button class="btn-package" onclick="openBookingModal('Keluarga/Kelompok', 600000)">Pilih Paket & Booking</button>
+                <div class="package-footer">*Harga sudah termasuk kunjungan lokasi kamu</div>
+            </div>
+            
+            <!-- Sekolah / Instansi -->
+            <div class="package-card" data-aos="flip-left" data-aos-delay="300">
+                <h3>Sekolah, Instansi, atau Lembaga</h3>
+                <div class="package-sub">Min. 10 Orang</div>
+                <div class="package-price">Rp 550.000 <small>Per orang</small></div>
+                <div class="package-dp"><i class="fas fa-money-bill-wave"></i> Hanya membayar DP Rp 100.000</div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Tes STIFIn</li>
+                    <li><i class="fas fa-check-circle"></i> Sertifikat</li>
+                    <li><i class="fas fa-check-circle"></i> Penjelasan dan Konsultasi</li>
+                    <li><i class="fas fa-check-circle"></i> E-Book Hasil Tes STIFIn</li>
+                    <li><i class="fas fa-check-circle"></i> E-Book Penjelasan</li>
+                    <li><i class="fas fa-check-circle"></i> Tanya Jawab</li>
+                    <li><i class="fas fa-check-circle"></i> Tempat sesuai permintaan</li>
+                </ul>
+                <button class="btn-package" onclick="openBookingModal('Sekolah/Instansi', 550000)">Pilih Paket & Booking</button>
+                <div class="package-footer">*Harga sudah termasuk kunjungan lokasi kamu</div>
+            </div>
+        </div>
+
+        <!-- Konsultasi Section -->
+        <div style="background: linear-gradient(135deg, #ffe6e6, #ffcdcd); border-radius: 50px; padding: 30px; margin: 30px 0; text-align: center;" data-aos="zoom-in">
+            <h2 style="font-size: 1.5rem;">Mau ngobrol-ngobrol santai dulu sebelum daftar Tes STIFIn?</h2>
+            <p style="margin: 15px 0;">Yuk, tanya-tanya langsung ke Promotor STIFIn di bawah ini</p>
+            <a href="https://wa.link/p70i6w" target="_blank" class="btn-wa-promotor" style="background: #25D366; display: inline-flex;"><i class="fab fa-whatsapp"></i> Konsul Gratis</a>
+        </div>
+
+        <!-- Promotor Section -->
+        <h2 class="section-title" id="promotor" data-aos="fade-up">Profil Promotor Tes STIFIn</h2>
+        
+        <div class="promotor-section" data-aos="fade-up" data-aos-delay="100">
+            <div class="promotor-image">
+                <div class="photo-frame">
+                    <img src="Zulfikar-Photo-r94a1xvwvj3pin67yr2dngygp7onhrjzb2f43m7kzk.png" 
+                         alt="Zulfikar Abdurrahman"
+                         onerror="this.style.display='none'; this.parentElement.style.background='#ffe6e6'; this.parentElement.innerHTML='<div style=\'height:100%; display:flex; align-items:center; justify-content:center; color:#b22222;\'>🖼️ Foto Zulfikar</div>'">
+                </div>
+            </div>
+            <div class="promotor-info">
+                <h2>Zulfikar Abdurrahman</h2>
+                <div class="promotor-title">Promotor STIFIn Berlisensi</div>
+                <p>Saya adalah Promotor STIFIn Berlisensi sejak 2023 dengan spesialisasi di bidang bisnis, keluarga, dan pengembangan diri. Telah membantu ratusan klien dalam memahami potensi genetik mereka untuk urusan karir, pendidikan, pola asuh, hingga hubungan pasangan.</p>
+                <p>Saya juga meraih penghargaan Top 3 Promotor STIFIn Nasional 2025 dan masuk Top 10 Promotor pada 2024 dan 2025. Aktif di komunitas edukasi STIFIn <strong>@guebangetid</strong>.</p>
+                <div class="btn-container">
+                    <a href="https://wa.link/p70i6w" target="_blank" class="btn-wa-promotor"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://www.instagram.com/zulfikarabdurahman/" target="_blank" class="btn-ig-promotor"><i class="fab fa-instagram"></i> @zulfikarabdurahman</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonial Section -->
+        <h2 class="section-title" data-aos="fade-up">Kata Mereka Tentang Tes STIFIn</h2>
+        
+        <div class="testimonial-slider-container" id="testimonialSlider">
+            <div class="testimonial-slider-track" id="testimonialTrack">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        "Banyak cara dalam memahami diri sendiri. Dengan STIFIn, kita lebih mengerti diri sendiri dan orang lain, kerjasama dalam keluarga dan dunia kerja menjadi lebih baik."
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>Kris Pujiatni</strong>
+                        <small>Psikolog, Dosen Psikologi UMS</small>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        "Setelah tes STIFIn, saya mengenal diri lebih dalam, menentukan metode belajar terbaik, serta memahami kelebihan dan kekurangan diri."
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>Arifia Maulida</strong>
+                        <small>Miss Indonesia Favorit 2020</small>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        "Tes STIFIn telah digunakan di berbagai belahan dunia dan sukses membantu memetakan potensi diri."
+                    </div>
+                    <div class="testimonial-author">
+                        <strong>7/5 - Testimonial Global</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slider-nav">
+            <button class="nav-button" id="testimonialPrevBtn"><i class="fas fa-chevron-left"></i></button>
+            <div class="progress-container">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar" id="testimonialProgressBar" style="width: 33.33%"></div>
+                </div>
+                <div class="slide-counter">
+                    <span id="testimonialCurrentSlide">1</span> / <span id="testimonialTotalSlides">3</span>
+                </div>
+            </div>
+            <button class="nav-button" id="testimonialNextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="section-info">
+            <i class="fas fa-arrows-alt-h"></i> Geser ke kiri/kanan untuk melihat testimonial lainnya
+        </div>
+
+        <!-- Gallery Section -->
+        <div class="gallery-section">
+            <h2 class="gallery-title">Galeri</h2>
+            
+            <div class="gallery-subtitle">
+                <i class="fas fa-camera"></i> Foto
+                <span class="category-badge" id="fotoTotal">0 Foto</span>
+            </div>
+            
+            <div class="gallery-slider-container" id="fotoSlider">
+                <div class="gallery-slider-track" id="fotoTrack"></div>
+            </div>
+            
+            <div class="slider-nav">
+                <button class="nav-button" id="fotoPrevBtn" disabled><i class="fas fa-chevron-left"></i></button>
+                <div class="progress-container">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar" id="fotoProgressBar" style="width: 0%"></div>
+                    </div>
+                    <div class="slide-counter">
+                        <span id="fotoCurrentSlide">1</span> / <span id="fotoTotalSlides">1</span>
+                    </div>
+                </div>
+                <button class="nav-button" id="fotoNextBtn" disabled><i class="fas fa-chevron-right"></i></button>
+            </div>
+            
+            <div class="category-separator"></div>
+            
+            <div class="gallery-subtitle">
+                <i class="fas fa-video"></i> Video
+                <span class="category-badge" id="videoTotal">0 Video</span>
+            </div>
+            
+            <div class="gallery-slider-container" id="videoSlider">
+                <div class="gallery-slider-track" id="videoTrack"></div>
+            </div>
+            
+            <div class="slider-nav">
+                <button class="nav-button" id="videoPrevBtn" disabled><i class="fas fa-chevron-left"></i></button>
+                <div class="progress-container">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar" id="videoProgressBar" style="width: 0%"></div>
+                    </div>
+                    <div class="slide-counter">
+                        <span id="videoCurrentSlide">1</span> / <span id="videoTotalSlides">1</span>
+                    </div>
+                </div>
+                <button class="nav-button" id="videoNextBtn" disabled><i class="fas fa-chevron-right"></i></button>
+            </div>
+            
+            <div class="section-info">
+                <i class="fas fa-arrows-alt-h"></i> Geser ke kiri/kanan untuk melihat galeri
+            </div>
+        </div>
+
+        <!-- Lightbox untuk foto -->
+        <div class="gallery-lightbox" id="galleryLightbox">
+            <div class="gallery-lightbox-close" id="galleryLightboxClose"><i class="fas fa-times"></i></div>
+            <div class="gallery-lightbox-content" id="galleryLightboxContent"></div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section" id="faq" data-aos="fade-up">
+            <h2 style="font-size: 1.8rem;">FAQ</h2>
+            <h3 style="font-size: 1.2rem; color: #4b5563; margin-bottom: 25px;">Sering Ditanyakan</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Apakah Tes STIFIn bisa online?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer active">Tes STIFIn memerlukan pemindaian 10 sidik jari langsung. Promotor bisa home visit.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Berapa lama proses Tes STIFIn?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">Scan sidik jari 2-5 menit, hasil keluar 15-45 menit. Total kurang dari 1 jam.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Apakah data sidik jari tersimpan?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">Tidak. Semua data sidik jari dihapus setelah proses selesai, privasi terjaga.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Berapa minimal usia tes?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">Minimal usia 2,5 tahun ke atas.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Tingkat akurasi tes?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">Mencapai 95% dan hasil berlaku seumur hidup.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== BOOKING MODAL ==================== -->
+    <div class="booking-modal" id="bookingModal">
+        <div class="booking-form">
+            <div class="close-btn" onclick="closeBookingModal()"><i class="fas fa-times"></i></div>
+            <h2>Booking Tes STIFIn</h2>
+            
+            <form id="bookingForm" onsubmit="event.preventDefault(); processBooking();">
+                <div class="form-group">
+                    <label>Nama Lengkap *</label>
+                    <input type="text" id="namaLengkap" required placeholder="Masukkan nama lengkap">
+                </div>
+                
+                <!-- MODIFIKASI: Tanggal Lahir (3 dropdown) -->
+                <div class="form-group">
+                    <label>Tanggal Lahir *</label>
+                    <div class="form-row-tanggal">
+                        <select id="tanggal" required>
+                            <option value="">Tanggal</option>
+                            <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                            <option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
+                            <option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option>
+                            <option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option>
+                            <option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option>
+                            <option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option>
+                            <option value="31">31</option>
+                        </select>
+                        <select id="bulan" required>
+                            <option value="">Bulan</option>
+                            <option value="1">Januari</option><option value="2">Februari</option><option value="3">Maret</option><option value="4">April</option>
+                            <option value="5">Mei</option><option value="6">Juni</option><option value="7">Juli</option><option value="8">Agustus</option>
+                            <option value="9">September</option><option value="10">Oktober</option><option value="11">November</option><option value="12">Desember</option>
+                        </select>
+                        <select id="tahun" required>
+                            <option value="">Tahun</option>
+                            <option value="2026">2026</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option>
+                            <option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option>
+                            <option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option>
+                            <option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option>
+                            <option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option>
+                            <option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option>
+                            <option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option>
+                            <option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option>
+                            <option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option>
+                            <option value="1990">1990</option><option value="1989">1989</option><option value="1988">1988</option><option value="1987">1987</option>
+                            <option value="1986">1986</option><option value="1985">1985</option><option value="1984">1984</option><option value="1983">1983</option>
+                            <option value="1982">1982</option><option value="1981">1981</option><option value="1980">1980</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Alamat Lengkap *</label>
+                    <textarea id="alamat" required placeholder="Masukkan alamat lengkap" rows="3"></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" id="email" required placeholder="contoh@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>No. WhatsApp *</label>
+                        <input type="tel" id="noWa" required placeholder="08123456789">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Pilih Paket *</label>
+                    <div class="package-selection" id="packageSelection">
+                        <!-- Paket akan diisi oleh JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Jumlah Orang *</label>
+                    <input type="number" id="jumlahOrang" min="1" max="100" value="1" required onchange="hitungTotal()">
+                </div>
+                
+                <div class="total-section">
+                    <p>Total Pembayaran</p>
+                    <h3 id="totalHarga">Rp 0</h3>
+                    <small>* DP Rp 100.000 dibayar di awal, sisanya setelah tes</small>
+                </div>
+                
+                <div class="payment-methods">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" alt="BCA">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Bank_Mandiri_logo.svg" alt="Mandiri">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Bank_BRI_logo.svg" alt="BRI">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/BNI_logo.svg" alt="BNI">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Logo_Gopay.svg" alt="Gopay">
+                </div>
+                
+                <button type="submit" class="btn-booking" id="submitBooking">
+                    <i class="fas fa-lock"></i> Bayar DP Rp 100.000 /Orang Sekarang
+                </button>
+                
+                <p style="text-align: center; margin-top: 15px; font-size: 0.85rem; color: #64748b;">
+                    <i class="fas fa-shield-alt"></i> Pembayaran aman dengan Midtrans
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i> <span id="notificationMessage"></span>
+    </div>
+
+    <!-- Sticky Bottom -->
+    <div class="sticky-bottom">
+        <div class="sticky-container">
+            <h3>Mau ngobrol dengan Promotor?</h3>
+            <a href="https://wa.link/p70i6w" target="_blank" class="btn-wa-sticky"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- Scroll to Top -->
+    <a href="#" class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 600,
+            once: true,
+            offset: 30
+        });
+
+        // ==================== BOOKING SYSTEM ====================
+        // MODIFIKASI: Data paket dengan logika baru
+        const paketList = [
+            { 
+                name: 'Personal/Pasangan', 
+                price: 650000,
+                min: 1,
+                max: 2
+            },
+            { 
+                name: 'Keluarga/Kelompok', 
+                price: 600000,
+                min: 3,
+                max: 9
+            },
+            { 
+                name: 'Sekolah/Instansi', 
+                price: 550000,
+                min: 10,
+                max: 9999 // Unlimited practically
+            }
+        ];
+
+        let selectedPaket = null;
+        let selectedPrice = 0;
+        let selectedMin = 1;
+        let selectedMax = 2;
+
+        // MODIFIKASI: Nomor WA promotor baru 085773837573 -> 6285773837573 (format internasional)
+        const promotorWA = '6285773837573'; 
+
+        function openBookingModal(paketName, price) {
+            // Cari data paket
+            const paket = paketList.find(p => p.name === paketName);
+            if (paket) {
+                selectedPaket = paket.name;
+                selectedPrice = paket.price;
+                selectedMin = paket.min;
+                selectedMax = paket.max;
+                
+                // Set min dan max di input jumlah orang
+                const jumlahInput = document.getElementById('jumlahOrang');
+                jumlahInput.min = selectedMin;
+                if (selectedMax < 9999) {
+                    jumlahInput.max = selectedMax;
+                } else {
+                    jumlahInput.removeAttribute('max');
+                }
+                jumlahInput.value = selectedMin;
+            }
+            
+            // Isi pilihan paket
+            const packageSelection = document.getElementById('packageSelection');
+            let html = '';
+            paketList.forEach((p) => {
+                let deskripsi = '';
+                if (p.max < 9999) {
+                    deskripsi = `${p.min} - ${p.max} orang`;
+                } else {
+                    deskripsi = `Minimal ${p.min} orang`;
+                }
+                
+                html += `
+                    <div class="package-option" onclick="selectPackage('${p.name}', ${p.price}, ${p.min}, ${p.max})">
+                        <input type="radio" name="paket" value="${p.name}" data-price="${p.price}" data-min="${p.min}" data-max="${p.max}" ${p.name === paketName ? 'checked' : ''}>
+                        <div class="details">
+                            <div class="name">${p.name}</div>
+                            <div class="price">Rp ${p.price.toLocaleString()} / orang (${deskripsi})</div>
+                        </div>
+                    </div>
+                `;
+            });
+            packageSelection.innerHTML = html;
+            
+            hitungTotal();
+            document.getElementById('bookingModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function selectPackage(name, price, min, max) {
+            selectedPaket = name;
+            selectedPrice = price;
+            selectedMin = min;
+            selectedMax = max;
+            
+            // Set min dan max di input jumlah orang
+            const jumlahInput = document.getElementById('jumlahOrang');
+            jumlahInput.min = selectedMin;
+            if (selectedMax < 9999) {
+                jumlahInput.max = selectedMax;
+            } else {
+                jumlahInput.removeAttribute('max');
+            }
+            
+            // Validasi jumlah orang yang sudah diinput
+            const currentJumlah = parseInt(jumlahInput.value) || selectedMin;
+            if (currentJumlah < selectedMin) {
+                jumlahInput.value = selectedMin;
+            } else if (selectedMax < 9999 && currentJumlah > selectedMax) {
+                jumlahInput.value = selectedMax;
+            }
+            
+            const radios = document.querySelectorAll('input[name="paket"]');
+            radios.forEach(radio => {
+                if (radio.value === name) {
+                    radio.checked = true;
+                }
+            });
+            hitungTotal();
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function hitungTotal() {
+            const jumlah = parseInt(document.getElementById('jumlahOrang').value) || selectedMin;
+            
+            // Validasi jumlah orang sesuai paket
+            if (jumlah < selectedMin) {
+                document.getElementById('jumlahOrang').value = selectedMin;
+            } else if (selectedMax < 9999 && jumlah > selectedMax) {
+                document.getElementById('jumlahOrang').value = selectedMax;
+            }
+            
+            const validJumlah = parseInt(document.getElementById('jumlahOrang').value) || selectedMin;
+            const total = selectedPrice * validJumlah;
+            document.getElementById('totalHarga').innerText = 'Rp ' + total.toLocaleString();
+        }
+
+        function simpanBooking(bookingData) {
+            let bookings = JSON.parse(localStorage.getItem('stifinBookings') || '[]');
+            bookings.push({
+                ...bookingData,
+                tanggal: new Date().toISOString(),
+                status: 'initiated'
+            });
+            localStorage.setItem('stifinBookings', JSON.stringify(bookings));
+        }
+
+        function updateBookingStatus(orderId, status, paymentId = null, paymentMethod = null, amount = null) {
+            // Update localStorage
+            let bookings = JSON.parse(localStorage.getItem('stifinBookings') || '[]');
+            const index = bookings.findIndex(b => b.orderId === orderId);
+            if (index !== -1) {
+                bookings[index].status = status;
+                bookings[index].updatedAt = new Date().toISOString();
+                localStorage.setItem('stifinBookings', JSON.stringify(bookings));
+            }
+            
+            // Update database
+            fetch('update-status.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    order_id: orderId,
+                    status: status,
+                    payment_id: paymentId,
+                    payment_method: paymentMethod,
+                    amount: amount
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Status updated di database');
+                } else {
+                    console.error('Gagal update status:', data.error);
+                }
+            })
+            .catch(error => console.error('Error updating status:', error));
+        }
+
+        // Fungsi untuk mengirim notifikasi ke customer
+        function sendToCustomer(bookingData) {
+            console.log('Mengirim notifikasi ke customer...');
+            
+            const customerNumber = bookingData.noWa.replace(/^0+/, '62');
+            
+            const customerMessage = `KONFIRMASI BOOKING TES STIFIn
+================================
+Halo Kak ${bookingData.nama},
+Pesanan Anda telah berhasil masuk ke sistem kami. Berikut adalah rincian reservasi/booking Anda:
+
+📌 DATA PELANGGAN
+------------------
+Order ID: ${bookingData.orderId}
+Nama: ${bookingData.nama}
+Tanggal Lahir: ${bookingData.tanggalLahir}
+Email: ${bookingData.email}
+WhatsApp: ${bookingData.noWa}
+Alamat: ${bookingData.alamat}
+
+📊 DETAIL LAYANAN
+------------------
+Paket: ${bookingData.paket}
+Jumlah Orang: ${bookingData.jumlahOrang} Orang
+
+💳 RINCIAN PEMBAYARAN
+------------------
+Total Biaya: Rp ${bookingData.total.toLocaleString()}
+DP Dibayar: Rp ${bookingData.dp.toLocaleString()}
+Sisa Pelunasan: Rp ${bookingData.sisa.toLocaleString()}
+Metode: ${bookingData.paymentMethod || 'Credit Card'}
+Payment ID: ${bookingData.paymentId || '-'}
+Waktu Transaksi: ${new Date().toLocaleString('id-ID')}
+Status: BOOKING BERHASIL ✅
+
+Terima kasih telah melakukan pemesanan. Sisa pembayaran sebesar Rp ${bookingData.sisa.toLocaleString()} dapat diselesaikan sesuai ketentuan yang berlaku. Promotor kami akan segera menghubungi Anda untuk koordinasi jadwal pelaksanaan tes.
+
+Hubungi Promotor: https://wa.me/${promotorWA}`;
+
+            // Kirim WA ke CUSTOMER via Fonnte
+            fetch('send-wa-fonnte.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    promotorWA: customerNumber, // KIRIM KE NOMOR CUSTOMER
+                    message: customerMessage
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Response Fonnte (Customer):', data);
+                
+                if (data.success) {
+                    showNotification('✅ Notifikasi terkirim ke customer!', 'success');
+                } else {
+                    console.error('Gagal kirim ke customer:', data.error);
+                    showNotification('⚠️ Notifikasi ke customer gagal', 'info');
+                    
+                    // Fallback manual untuk customer
+                    const fallbackLink = `https://wa.me/${customerNumber}?text=${encodeURIComponent(customerMessage)}`;
+                    if (confirm('Gagal kirim otomatis ke customer. Buka WhatsApp manual?')) {
+                        window.open(fallbackLink, '_blank');
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error fetch customer:', error);
+                showNotification('⚠️ Gagal kirim notifikasi ke customer', 'info');
+                
+                // Fallback manual untuk customer
+                const fallbackLink = `https://wa.me/${customerNumber}?text=${encodeURIComponent(customerMessage)}`;
+                if (confirm('Gagal kirim otomatis ke customer. Buka WhatsApp manual?')) {
+                    window.open(fallbackLink, '_blank');
+                }
+            });
+        }
+
+        // Fungsi untuk mengirim notifikasi ke promotor
+        function sendToPromotor(bookingData) {
+            console.log('Mengirim notifikasi ke promotor...');
+            
+            const customerNumber = bookingData.noWa.replace(/^0+/, '62');
+            
+            const promotorMessage = `KONFIRMASI BOOKING TES STIFIn
+================================
+Halo Promotor,
+Ada pesanan baru yang masuk. Berikut adalah rincian lengkap customer:
+
+📌 DATA PELANGGAN
+------------------
+Order ID: ${bookingData.orderId}
+Nama: ${bookingData.nama}
+Tanggal Lahir: ${bookingData.tanggalLahir}
+Email: ${bookingData.email}
+WhatsApp: ${bookingData.noWa}
+Alamat: ${bookingData.alamat}
+
+📊 DETAIL LAYANAN
+------------------
+Paket: ${bookingData.paket}
+Jumlah Orang: ${bookingData.jumlahOrang} Orang
+
+💳 RINCIAN PEMBAYARAN
+------------------
+Total Biaya: Rp ${bookingData.total.toLocaleString()}
+DP Dibayar: Rp ${bookingData.dp.toLocaleString()}
+Sisa Pelunasan: Rp ${bookingData.sisa.toLocaleString()}
+Metode: ${bookingData.paymentMethod || 'Credit Card'}
+Payment ID: ${bookingData.paymentId || '-'}
+Waktu Transaksi: ${new Date().toLocaleString('id-ID')}
+Status: BOOKING BERHASIL ✅
+
+Silakan segera hubungi customer untuk koordinasi jadwal pelaksanaan tes.
+
+Hubungi Customer: https://wa.me/${customerNumber}`;
+
+            // Tampilkan loading
+            showNotification('📤 Mengirim notifikasi ke promotor...', 'info');
+            
+            // Kirim WA ke PROMOTOR via Fonnte
+            fetch('send-wa-fonnte.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    promotorWA: promotorWA, // ✅ KIRIM KE NOMOR PROMOTOR BARU
+                    message: promotorMessage
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Response Fonnte (Promotor):', data);
+                
+                if (data.success) {
+                    showNotification('✅ Notifikasi terkirim ke promotor!', 'success');
+                    
+                    // Setelah WA promotor sukses, kirim WA ke CUSTOMER
+                    sendToCustomer(bookingData);
+                    
+                } else {
+                    console.error('Gagal kirim ke promotor:', data.error);
+                    showNotification('❌ Gagal kirim ke promotor', 'error');
+                    
+                    // Fallback manual untuk promotor
+                    const fallbackLink = `https://wa.me/${promotorWA}?text=${encodeURIComponent(promotorMessage)}`;
+                    if (confirm('Gagal kirim otomatis ke promotor. Buka WhatsApp manual?')) {
+                        window.open(fallbackLink, '_blank');
+                        
+                        // Tetap coba kirim ke customer
+                        sendToCustomer(bookingData);
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error fetch:', error);
+                showNotification('❌ Gagal terhubung ke server', 'error');
+                
+                // Fallback manual untuk promotor
+                const fallbackLink = `https://wa.me/${promotorWA}?text=${encodeURIComponent(promotorMessage)}`;
+                if (confirm('Gagal kirim otomatis ke promotor. Buka WhatsApp manual?')) {
+                    window.open(fallbackLink, '_blank');
+                    
+                    // Tetap coba kirim ke customer
+                    sendToCustomer(bookingData);
+                }
+            });
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const messageSpan = document.getElementById('notificationMessage');
+            messageSpan.innerText = message;
+            
+            if (type === 'error') {
+                notification.style.background = 'linear-gradient(135deg, #dc2626, #b91c1c)';
+            } else if (type === 'info') {
+                notification.style.background = 'linear-gradient(135deg, #2563eb, #1d4ed8)';
+            } else {
+                notification.style.background = 'var(--gradient-primary)';
+            }
+            
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 5000);
+        }
+
+        function processBooking() {
+            // Validasi form
+            const nama = document.getElementById('namaLengkap').value;
+            const tanggal = document.getElementById('tanggal').value;
+            const bulan = document.getElementById('bulan').value;
+            const tahun = document.getElementById('tahun').value;
+            const alamat = document.getElementById('alamat').value;
+            const email = document.getElementById('email').value;
+            const noWa = document.getElementById('noWa').value;
+            const jumlahOrang = parseInt(document.getElementById('jumlahOrang').value);
+            
+            if (!nama || !tanggal || !bulan || !tahun || !alamat || !email || !noWa) {
+                showNotification('Harap isi semua field!', 'error');
+                return;
+            }
+
+            if (!selectedPaket) {
+                showNotification('Harap pilih paket!', 'error');
+                return;
+            }
+
+            if (!email.includes('@') || !email.includes('.')) {
+                showNotification('Format email tidak valid!', 'error');
+                return;
+            }
+
+            const waClean = noWa.replace(/[^0-9]/g, '');
+            if (waClean.length < 10) {
+                showNotification('Nomor WA tidak valid! Minimal 10 digit', 'error');
+                return;
+            }
+
+            // Validasi jumlah orang sesuai paket
+            if (jumlahOrang < selectedMin) {
+                showNotification(`Minimal ${selectedMin} orang untuk paket ini!`, 'error');
+                return;
+            }
+            if (selectedMax < 9999 && jumlahOrang > selectedMax) {
+                showNotification(`Maksimal ${selectedMax} orang untuk paket ini!`, 'error');
+                return;
+            }
+
+            const total = selectedPrice * jumlahOrang;
+            const dpAmount = 100000 * jumlahOrang;
+            const sisaAmount = total - dpAmount;
+            const orderId = 'STIFIN-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            
+            // Format tanggal lahir YYYY-MM-DD
+            const tanggalLahir = `${tahun}-${bulan.padStart(2, '0')}-${tanggal.padStart(2, '0')}`;
+
+            // Data booking untuk disimpan
+            const bookingData = {
+                order_id: orderId,
+                nama: nama,
+                tanggal_lahir: tanggalLahir,
+                alamat: alamat,
+                email: email,
+                no_wa: waClean,
+                paket: selectedPaket,
+                jumlahOrang: jumlahOrang,
+                total: total,
+                dp: dpAmount,
+                sisa: sisaAmount
+            };
+
+            // Simpan ke localStorage
+            simpanBooking({
+                orderId: orderId,
+                nama: nama,
+                tanggalLahir: tanggalLahir,
+                alamat: alamat,
+                email: email,
+                noWa: waClean,
+                paket: selectedPaket,
+                jumlahOrang: jumlahOrang,
+                total: total,
+                dp: dpAmount,
+                sisa: sisaAmount
+            });
+            
+            // Simpan ke database
+            fetch('simpan-booking.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(bookingData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Database response:', data);
+                if (!data.success) {
+                    console.error('Gagal simpan ke database:', data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error saving to database:', error);
+            });
+
+            const submitBtn = document.getElementById('submitBooking');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span class="loading-spinner"></span> Memproses...';
+            submitBtn.disabled = true;
+
+            const midtransData = {
+                customer: {
+                    nama: nama,
+                    email: email,
+                    noWa: waClean,
+                    alamat: alamat
+                },
+                order_id: orderId,
+                amount: dpAmount,
+                items: [
+                    {
+                        id: 'DP-STIFIN',
+                        price: dpAmount,
+                        quantity: 1,
+                        name: 'DP Tes STIFIn - ' + selectedPaket + ' (' + jumlahOrang + ' orang)'
+                    }
+                ]
+            };
+
+            fetch('midtrans-create-transaction.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(midtransData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.snap.pay(data.token, {
+                        onSuccess: function(result) {
+                            console.log('Payment success:', result);
+                            
+                            updateBookingStatus(orderId, 'paid', result.transaction_id, result.payment_type, dpAmount);
+                            
+                            // Kirim notifikasi KE PROMOTOR dan CUSTOMER
+                            sendToPromotor({
+                                orderId: orderId,
+                                nama: nama,
+                                tanggalLahir: tanggalLahir,
+                                email: email,
+                                noWa: waClean,
+                                alamat: alamat,
+                                paket: selectedPaket,
+                                jumlahOrang: jumlahOrang,
+                                total: total,
+                                dp: dpAmount,
+                                sisa: sisaAmount,
+                                status: 'paid',
+                                paymentId: result.transaction_id,
+                                paymentMethod: result.payment_type
+                            });
+                            
+                            showNotification('Pembayaran berhasil! Notifikasi terkirim ke promotor dan customer.');
+                            closeBookingModal();
+                            
+                            // Reset form
+                            document.getElementById('bookingForm').reset();
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                        },
+                        onPending: function(result) {
+                            console.log('Payment pending:', result);
+                            
+                            updateBookingStatus(orderId, 'pending', result.transaction_id, result.payment_type, dpAmount);
+                            
+                            showNotification('Menunggu pembayaran Anda... Silakan selesaikan pembayaran');
+                            
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                        },
+                        onError: function(result) {
+                            console.log('Payment error:', result);
+                            showNotification('Pembayaran gagal: ' + (result.status_message || 'Unknown error'), 'error');
+                            
+                            updateBookingStatus(orderId, 'failed');
+                            
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                        },
+                        onClose: function() {
+                            console.log('Customer closed the popup');
+                            showNotification('Pembayaran dibatalkan', 'error');
+                            
+                            updateBookingStatus(orderId, 'cancelled');
+                            
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                        }
+                    });
+                } else {
+                    showNotification('Gagal memproses pembayaran: ' + (data.error || 'Unknown error'), 'error');
+                    console.error('Midtrans error:', data);
+                    
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showNotification('Gagal terhubung ke server pembayaran', 'error');
+                
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        }
+
+        // ==================== DRAG SCROLL FUNCTIONS ====================
+        function initDragScroll(containerId, trackId, prevBtnId, nextBtnId, currentSpanId, totalSpanId, progressBarId) {
+            const container = document.getElementById(containerId);
+            const track = document.getElementById(trackId);
+            const prevBtn = document.getElementById(prevBtnId);
+            const nextBtn = document.getElementById(nextBtnId);
+            const currentSpan = document.getElementById(currentSpanId);
+            const totalSpan = document.getElementById(totalSpanId);
+            const progressBar = document.getElementById(progressBarId);
+            
+            if (!container || !track) return;
+            
+            let isDragging = false;
+            let startX = 0;
+            let scrollLeft = 0;
+            let currentIndex = 0;
+            
+            const items = track.children;
+            const itemCount = items.length;
+            
+            function getItemsPerView() {
+                if (containerId.includes('testimonial')) {
+                    return window.innerWidth < 768 ? 1 : 3;
+                } else {
+                    return window.innerWidth < 768 ? 2 : 3;
+                }
+            }
+            
+            const itemsPerView = getItemsPerView();
+            const totalPages = Math.ceil(itemCount / itemsPerView);
+            
+            if (totalSpan) totalSpan.textContent = totalPages;
+            
+            function updateProgress() {
+                if (progressBar) {
+                    const progress = ((currentIndex + itemsPerView) / itemCount) * 100;
+                    progressBar.style.width = Math.min(progress, 100) + '%';
+                }
+                if (currentSpan) currentSpan.textContent = Math.floor(currentIndex / itemsPerView) + 1;
+                
+                if (prevBtn) prevBtn.disabled = currentIndex <= 0;
+                if (nextBtn) nextBtn.disabled = currentIndex + itemsPerView >= itemCount;
+            }
+            
+            container.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.pageX - container.offsetLeft;
+                scrollLeft = track.style.transform ? parseFloat(track.style.transform.replace('translateX(', '')) || 0 : 0;
+                container.style.cursor = 'grabbing';
+            });
+            
+            container.addEventListener('mouseup', () => {
+                isDragging = false;
+                container.style.cursor = 'grab';
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                isDragging = false;
+                container.style.cursor = 'grab';
+            });
+            
+            container.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                
+                const x = e.pageX - container.offsetLeft;
+                const walk = (x - startX) * 1.2;
+                
+                const itemWidth = items[0].offsetWidth + parseInt(getComputedStyle(items[0]).marginRight || 16);
+                const maxScroll = (itemCount - itemsPerView) * itemWidth;
+                
+                let newScroll = scrollLeft - walk;
+                newScroll = Math.max(0, Math.min(newScroll, maxScroll));
+                
+                track.style.transform = `translateX(-${newScroll}px)`;
+                
+                currentIndex = Math.round(newScroll / itemWidth);
+                updateProgress();
+            });
+            
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    const itemWidth = items[0].offsetWidth + 16;
+                    const newIndex = Math.max(0, currentIndex - itemsPerView);
+                    track.style.transform = `translateX(-${newIndex * itemWidth}px)`;
+                    currentIndex = newIndex;
+                    updateProgress();
+                });
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    const itemWidth = items[0].offsetWidth + 16;
+                    const newIndex = Math.min(itemCount - itemsPerView, currentIndex + itemsPerView);
+                    track.style.transform = `translateX(-${newIndex * itemWidth}px)`;
+                    currentIndex = newIndex;
+                    updateProgress();
+                });
+            }
+            
+            window.addEventListener('resize', () => {
+                const newItemsPerView = getItemsPerView();
+                if (newItemsPerView !== itemsPerView) {
+                    location.reload();
+                }
+            });
+            
+            updateProgress();
+        }
+
+        // ==================== GALLERY ====================
+        const fotoFiles = [
+            'WhatsApp-Image-2026-02-18-at-14.45.37.jpg',
+            'WhatsApp-Image-2026-02-18-at-14.45.37 (2).jpg',
+            'WhatsApp-Image-2026-02-18-at-14.47.20.jpg',
+            'WhatsApp-Image-2026-02-18-at-14.54.07.jpg'
+        ];
+        
+        const videoFiles = [
+            'WhatsApp Video 2026-02-18 at 14.58.12.mp4',
+            'WhatsApp Video 2026-02-18 at 14.58.23.mp4',
+            'WhatsApp Video 2026-02-18 at 14.58.40.mp4'
+        ];
+        
+        const fotoTrack = document.getElementById('fotoTrack');
+        const fotoTotalSpan = document.getElementById('fotoTotal');
+        
+        fotoTotalSpan.textContent = fotoFiles.length + ' Foto';
+        
+        fotoFiles.forEach((file, index) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item foto-item';
+            item.setAttribute('data-index', index + 1);
+            
+            const img = new Image();
+            img.onload = function() {
+                item.style.backgroundImage = `url('${file}')`;
+            };
+            img.src = file;
+            
+            item.addEventListener('click', function() {
+                const lightbox = document.getElementById('galleryLightbox');
+                const content = document.getElementById('galleryLightboxContent');
+                content.innerHTML = `<img src="${file}" style="max-width: 100%; max-height: 90vh;">`;
+                lightbox.classList.add('active');
+            });
+            
+            fotoTrack.appendChild(item);
+        });
+        
+        const videoTrack = document.getElementById('videoTrack');
+        const videoTotalSpan = document.getElementById('videoTotal');
+        
+        videoTotalSpan.textContent = videoFiles.length + ' Video';
+        
+        videoFiles.forEach((file, index) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item video-item';
+            item.setAttribute('data-index', index + 1);
+            
+            const videoEl = document.createElement('video');
+            videoEl.className = 'video-player';
+            videoEl.muted = true;
+            videoEl.loop = false;
+            videoEl.playsInline = true;
+            videoEl.preload = 'metadata';
+            
+            const source = document.createElement('source');
+            source.src = file;
+            source.type = 'video/mp4';
+            videoEl.appendChild(source);
+            
+            const thumbnail = document.createElement('img');
+            thumbnail.className = 'video-thumbnail';
+            thumbnail.alt = `Video ${index + 1}`;
+            
+            const tempVideo = document.createElement('video');
+            tempVideo.preload = 'metadata';
+            tempVideo.onloadeddata = function() {
+                const canvas = document.createElement('canvas');
+                canvas.width = tempVideo.videoWidth;
+                canvas.height = tempVideo.videoHeight;
+                canvas.getContext('2d').drawImage(tempVideo, 0, 0, canvas.width, canvas.height);
+                thumbnail.src = canvas.toDataURL('image/jpeg');
+            };
+            tempVideo.src = file;
+            
+            thumbnail.onerror = function() {
+                thumbnail.style.display = 'none';
+            };
+            
+            const muteBtn = document.createElement('div');
+            muteBtn.className = 'mute-btn';
+            muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            muteBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (videoEl.muted) {
+                    videoEl.muted = false;
+                    muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                } else {
+                    videoEl.muted = true;
+                    muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                }
+            });
+            
+            const videoIcon = document.createElement('div');
+            videoIcon.className = 'video-icon';
+            videoIcon.innerHTML = '<i class="fas fa-play"></i>';
+            
+            item.appendChild(thumbnail);
+            item.appendChild(videoEl);
+            item.appendChild(videoIcon);
+            item.appendChild(muteBtn);
+            
+            item.addEventListener('click', function(e) {
+                if (e.target === muteBtn) return;
+                
+                document.querySelectorAll('.video-item.playing').forEach(playingItem => {
+                    if (playingItem !== this) {
+                        const playingVideo = playingItem.querySelector('video');
+                        playingVideo.pause();
+                        playingItem.classList.remove('playing');
+                    }
+                });
+                
+                if (this.classList.contains('playing')) {
+                    videoEl.pause();
+                    this.classList.remove('playing');
+                } else {
+                    videoEl.play();
+                    this.classList.add('playing');
+                }
+            });
+            
+            videoTrack.appendChild(item);
+        });
+
+        // ==================== INITIALIZATION ====================
+        window.addEventListener('load', () => {
+            initDragScroll(
+                'manfaatSlider', 'manfaatTrack',
+                'manfaatPrevBtn', 'manfaatNextBtn',
+                'manfaatCurrentSlide', 'manfaatTotalSlides',
+                'manfaatProgressBar'
+            );
+            
+            initDragScroll(
+                'testimonialSlider', 'testimonialTrack',
+                'testimonialPrevBtn', 'testimonialNextBtn',
+                'testimonialCurrentSlide', 'testimonialTotalSlides',
+                'testimonialProgressBar'
+            );
+            
+            initDragScroll(
+                'fotoSlider', 'fotoTrack',
+                'fotoPrevBtn', 'fotoNextBtn',
+                'fotoCurrentSlide', 'fotoTotalSlides',
+                'fotoProgressBar'
+            );
+            
+            initDragScroll(
+                'videoSlider', 'videoTrack',
+                'videoPrevBtn', 'videoNextBtn',
+                'videoCurrentSlide', 'videoTotalSlides',
+                'videoProgressBar'
+            );
+        });
+
+        // Lightbox
+        document.getElementById('galleryLightboxClose').addEventListener('click', function() {
+            document.getElementById('galleryLightbox').classList.remove('active');
+            document.getElementById('galleryLightboxContent').innerHTML = '';
+        });
+
+        document.getElementById('galleryLightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+                document.getElementById('galleryLightboxContent').innerHTML = '';
+            }
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                answer.classList.toggle('active');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+
+        // Scroll to Top
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Ripple effect
+        document.querySelectorAll('.btn-package, .btn-wa-promotor, .btn-ig-promotor, .btn-wa-sticky, .nav-button, .ig-button-top, .feature-tag, .personality-card, .manfaat-card, .testimonial-card').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Animate badge
+        setInterval(() => {
+            const badge = document.querySelector('.badge-primary');
+            if (badge) {
+                badge.style.transform = 'scale(1.03)';
+                setTimeout(() => {
+                    badge.style.transform = 'scale(1)';
+                }, 200);
+            }
+        }, 3000);
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('bookingModal');
+            if (e.target === modal) {
+                closeBookingModal();
+            }
+        });
+    </script>
+
+    <!-- Extra space for sticky bottom -->
+    <div style="height: 60px;"></div>
+</body>
+</html>

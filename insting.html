@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipe Insting (In) - STIFIn: Kenali Potensi Genetikmu</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* ==================== VARIABEL CSS (NUANSA MERAH) ==================== */
+        :root {
+            --primary: #b22222;
+            --primary-dark: #8b1a1a;
+            --primary-light: #cd5c5c;
+            --accent: #ff6b6b;
+            --accent-soft: #ffe6e6;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-800: #1F2937;
+            --gradient-primary: linear-gradient(135deg, #b22222, #dc143c);
+            --gradient-dark: linear-gradient(135deg, #8b1a1a, #b22222);
+            --shadow-sm: 0 10px 30px rgba(178, 34, 34, 0.05);
+            --shadow-md: 0 20px 40px rgba(178, 34, 34, 0.1);
+            --shadow-lg: 0 30px 60px rgba(178, 34, 34, 0.15);
+        }
+
+        /* ==================== RESET & BASE ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 14px;
+        }
+
+        body {
+            font-family: 'Nunito', 'Poppins', sans-serif;
+            line-height: 1.5;
+            color: #1e1e2f;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Image Placeholder */
+        .img-placeholder {
+            background: linear-gradient(135deg, #ffe6e6, #ffb6b6);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b22222;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 2px dashed #cd5c5c;
+            min-height: 150px;
+            width: 100%;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .img-placeholder.small {
+            min-height: 50px;
+        }
+
+        /* ==================== NAVBAR ==================== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #ffe6e6;
+            background: white;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            transition: transform 0.3s ease;
+            max-width: 120px;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1e293b;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Instagram Button */
+        .ig-button-top {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .ig-button-top:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Tombol Kembali ke Beranda */
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 15px 0 25px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            border: 2px solid transparent;
+            font-size: 0.95rem;
+        }
+
+        .back-to-home:hover {
+            background: white;
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateX(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .back-to-home i {
+            transition: transform 0.3s ease;
+        }
+
+        .back-to-home:hover i {
+            transform: translateX(-4px);
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero-insting {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%);
+            padding: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-insting::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(180, 83, 9, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: var(--gradient-dark);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .insting-badge {
+            display: inline-block;
+            background: #b45309;
+            color: white;
+            padding: 6px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image .letter-large {
+            font-size: 12rem;
+            font-weight: 900;
+            color: #b45309;
+            line-height: 1;
+            text-shadow: 8px 8px 16px rgba(180, 83, 9, 0.2);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { text-shadow: 8px 8px 16px rgba(180, 83, 9, 0.2); }
+            50% { text-shadow: 12px 12px 24px rgba(180, 83, 9, 0.4); }
+        }
+
+        /* ==================== SECTION TITLE ==================== */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 40px 0 15px;
+            background: var(--gradient-dark);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .section-title.center {
+            text-align: center;
+        }
+
+        .section-title.center::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* ==================== TOKOH INSPIRATIF SECTION - DENGAN SATU CARD ==================== */
+        .tokoh-section {
+            background: linear-gradient(135deg, #fff0f0, #ffe0e0);
+            border-radius: 40px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-light);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tokoh-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .tokoh-header h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tokoh-header h2 i {
+            font-size: 1.8rem;
+        }
+
+        .tokoh-badge {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        /* Foto Utama - DIPERKECIL 60% */
+        .tokoh-featured-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .tokoh-featured-image {
+            width: 60%;
+            max-width: 500px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 4px solid white;
+            transition: transform 0.5s ease;
+            margin: 0 auto;
+        }
+
+        .tokoh-featured-image:hover {
+            transform: scale(1.02);
+        }
+
+        .tokoh-featured-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .tokoh-description {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* SATU CARD UNTUK INSTING */
+        .tokoh-card-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .tokoh-card {
+            background: white;
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-top: 6px solid #b45309;
+        }
+
+        .tokoh-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tokoh-card .type-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #b45309;
+            justify-content: center;
+        }
+
+        .traits-grid-dua-kolom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .traits-grid-dua-kolom {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        .traits-kolom {
+            background: var(--accent-soft);
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .traits-kolom h4 {
+            color: #b45309;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .traits-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .trait-cloud-item {
+            background: white;
+            color: var(--primary-dark);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            border: 1px solid #b45309;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .trait-cloud-item:hover {
+            background: #b45309;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
+            border-color: transparent;
+        }
+
+        .tokoh-quote-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .tokoh-quote-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tokoh-quote {
+            padding: 20px;
+            background: #fff5f5;
+            border-radius: 25px;
+            font-style: italic;
+            position: relative;
+            border-left: 4px solid var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .tokoh-quote p {
+            margin-bottom: 8px;
+        }
+
+        .tokoh-quote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tokoh-quote i {
+            color: var(--primary);
+            opacity: 0.3;
+            font-size: 1.8rem;
+            position: absolute;
+            bottom: 8px;
+            right: 16px;
+        }
+
+        .tokoh-footer {
+            text-align: center;
+            margin-top: 25px;
+            font-style: italic;
+            color: var(--gray-600);
+            font-size: 1rem;
+        }
+
+        .tokoh-footer i {
+            color: var(--primary);
+            margin-right: 5px;
+        }
+
+        /* ==================== CARD SIFAT KHAS ==================== */
+        .traits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .trait-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px 15px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #ffcdcd;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .trait-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+            background: #b45309;
+        }
+
+        .trait-card:hover .trait-icon,
+        .trait-card:hover .trait-title,
+        .trait-card:hover .trait-desc {
+            color: white;
+        }
+
+        .trait-icon {
+            font-size: 2rem;
+            color: #b45309;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .trait-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #b45309;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .trait-desc {
+            color: #64748b;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        /* ==================== INFO CARD ==================== */
+        .info-card {
+            background: #fff5f5;
+            border-radius: 25px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 6px solid #b45309;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateX(8px);
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            color: #b45309;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-card h3 i {
+            font-size: 1.6rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .info-grid-item {
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px dashed var(--primary-light);
+        }
+
+        .info-grid-item strong {
+            display: block;
+            color: #b45309;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        /* ==================== BRAIN PART SECTION ==================== */
+        .brain-insting {
+            background: linear-gradient(135deg, #b45309, #f59e0b);
+            border-radius: 30px;
+            padding: 30px;
+            margin: 30px 0;
+            color: white;
+        }
+
+        .brain-insting h2 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .brain-highlight {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .brain-highlight .letter {
+            font-size: 6rem;
+            font-weight: 900;
+            line-height: 1;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .brain-highlight .desc {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .brain-highlight .desc p {
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        .brain-highlight .desc i {
+            margin-right: 8px;
+            color: var(--accent-soft);
+        }
+
+        /* ==================== LIST STYLING ==================== */
+        .custom-list {
+            list-style: none;
+            margin: 16px 0;
+        }
+
+        .custom-list li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #ffcdcd;
+            transition: transform 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .custom-list li:hover {
+            transform: translateX(8px);
+            background: #fff5f5;
+            padding-left: 12px;
+            border-radius: 12px;
+        }
+
+        .custom-list i {
+            color: #b45309;
+            font-size: 1.1rem;
+            width: 22px;
+        }
+
+        /* ==================== PROFESI TAGS ==================== */
+        .profesi-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .profesi-tag {
+            background: white;
+            border: 1px solid var(--primary-light);
+            color: #b45309;
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .profesi-tag:hover {
+            background: #b45309;
+            color: white;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-md);
+            border-color: transparent;
+        }
+
+        /* ==================== QUOTE BLOCK ==================== */
+        .stifin-quote {
+            background: white;
+            border-radius: 25px;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border: 2px dashed #b45309;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #b45309;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .stifin-quote i {
+            font-size: 2.5rem;
+            opacity: 0.2;
+            color: #b45309;
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .stifin-quote .source {
+            display: block;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        /* ==================== STATS CARDS ==================== */
+        .stats-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 768px) {
+            .stats-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #ffcdcd;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: #b45309;
+        }
+
+        .stat-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #b45309;
+        }
+
+        /* ==================== TYPE CARD IN ==================== */
+        .type-card {
+            background: white;
+            border-radius: 30px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .type-card.in {
+            border-color: #b45309;
+        }
+
+        .type-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg), 0 20px 40px rgba(180, 83, 9, 0.2);
+        }
+
+        .type-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ffcdcd;
+            padding-bottom: 12px;
+        }
+
+        .type-header .type-letter {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1;
+            color: #b45309;
+        }
+
+        .type-header .type-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #b45309;
+        }
+
+        /* ==================== CTA BOTTOM ==================== */
+        .cta-bottom {
+            background: linear-gradient(135deg, #ffe6e6, #ffcdcd);
+            border-radius: 50px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .cta-bottom h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .btn-wa {
+            background: #25D366;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            margin-top: 16px;
+        }
+
+        .btn-wa:hover {
+            background: #128C7E;
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-wa i {
+            font-size: 1.3rem;
+        }
+
+        /* ==================== FAQ ==================== */
+        .faq-section {
+            background: #fff5f5;
+            border-radius: 40px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ffcdcd;
+            padding: 16px 0;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-answer {
+            color: #334155;
+            margin-top: 10px;
+            display: none;
+            animation: slideDown 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==================== STICKY BOTTOM ==================== */
+        .sticky-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--gradient-primary);
+            padding: 12px 0;
+            z-index: 999;
+            box-shadow: 0 -4px 15px rgba(178,34,34,0.1);
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        .sticky-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            color: white;
+        }
+
+        .sticky-container h3 {
+            font-size: 1.1rem;
+            animation: pulse 2s infinite;
+        }
+
+        .btn-wa-sticky {
+            background: white;
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-wa-sticky:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            background: #1e1e2f;
+            color: white;
+            padding: 50px 0 25px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo img {
+            max-width: 120px;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo p {
+            color: #9ca3af;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 16px;
+            position: relative;
+            padding-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 35px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+            padding-left: 4px;
+        }
+
+        .footer-contact i {
+            width: 22px;
+            color: var(--primary);
+            margin-right: 8px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 25px;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+
+        /* ==================== UTILITY ==================== */
+        .mt-2 { margin-top: 0.4rem; }
+        .mb-2 { margin-bottom: 0.4rem; }
+        .mt-4 { margin-top: 0.8rem; }
+        .mb-4 { margin-bottom: 0.8rem; }
+        .text-center { text-align: center; }
+
+        /* ==================== RESPONSIVE FOR MOBILE ==================== */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px 0;
+            }
+            
+            .logo {
+                max-width: 100px;
+            }
+            
+            .nav-links {
+                gap: 16px;
+            }
+            
+            .nav-links a {
+                font-size: 13px;
+            }
+            
+            .ig-button-top {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+            
+            .back-to-home {
+                padding: 8px 18px;
+                font-size: 0.85rem;
+                margin: 12px 0 20px;
+            }
+            
+            .hero-container {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 16px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-image .letter-large {
+                font-size: 7rem;
+            }
+            
+            .tokoh-featured-image {
+                width: 80%;
+            }
+            
+            .tokoh-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .tokoh-header h2 {
+                font-size: 1.6rem;
+            }
+            
+            .stats-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .traits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            html {
+                font-size: 13px;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-image .letter-large {
+                font-size: 5rem;
+            }
+            
+            .tokoh-featured-image {
+                width: 90%;
+            }
+            
+            .traits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="STIFIn.html">
+                    <img src="icon_stifin-1024x531.png" alt="Logo STIFIn" style="width: 100%; height: auto; max-width: 120px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="img-placeholder small" style="display: none; width: 120px; height: 40px;" data-text="Logo STIFIn"></div>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="STIFIn.html#stifin">STIFIn</a>
+                <a href="STIFIn.html#harga">Harga</a>
+                <a href="STIFIn.html#promotor">Promotor</a>
+                <a href="STIFIn.html#faq">FAQ</a>
+            </div>
+            <div class="nav-right">
+                <a href="https://www.instagram.com/guebangetid/" target="_blank" class="ig-button-top">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </nav>
+        
+        <!-- Tombol Kembali ke Beranda -->
+        <a href="STIFIn.html" class="back-to-home">
+            <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+        </a>
+    </div>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-insting">
+        <div class="hero-container">
+            <div class="hero-content" data-aos="fade-right">
+                <span class="insting-badge">Mesin Kecerdasan</span>
+                <h1>INSTING (In)</h1>
+                <p><strong>“Si Serba Bisa dengan Naluri yang Tajam”</strong></p>
+                <p>Tipe Insting adalah mereka yang mengandalkan naluri dan refleks sebagai sistem operasi utama otaknya. Mereka memiliki kecerdasan altruist (Altruist Quotient), kemampuan adaptasi tinggi, dan reflek yang cepat. Dalam konsep STIFIn, tipe In adalah satu-satunya Mesin Kecerdasan yang tidak memiliki kemudi introvert atau extrovert, sehingga bekerja secara otomatis dan spontan.</p>
+                <div style="margin-top: 25px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+                    <span style="background: white; padding: 6px 16px; border-radius: 30px; color: #b45309; font-weight: 600; box-shadow: var(--shadow-sm); font-size: 0.9rem;"><i class="fas fa-check-circle" style="color: #b45309;"></i> Otak Tengah</span>
+                    <span style="background: white; padding: 6px 16px; border-radius: 30px; color: #b45309; font-weight: 600; box-shadow: var(--shadow-sm); font-size: 0.9rem;"><i class="fas fa-check-circle" style="color: #b45309;"></i> Reflek Cepat</span>
+                    <span style="background: white; padding: 6px 16px; border-radius: 30px; color: #b45309; font-weight: 600; box-shadow: var(--shadow-sm); font-size: 0.9rem;"><i class="fas fa-check-circle" style="color: #b45309;"></i> Adaptif & Serba Bisa</span>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left">
+                <div class="letter-large">In</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- ==================== STATS CARD INSTING ==================== -->
+        <div class="stats-cards">
+            <div class="stat-card" data-aos="fade-up">
+                <h3>AQ</h3>
+                <p><strong>Altruist Quotient</strong> - Kecerdasan berkorban untuk kepentingan yang lebih besar.</p>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Reflek Cepat</h3>
+                <p>Mampu bereaksi spontan dan tepat dalam situasi apa pun.</p>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>Adaptif</h3>
+                <p>Mudah menyesuaikan diri dengan lingkungan dan situasi baru.</p>
+            </div>
+        </div>
+
+        <!-- ==================== TOKOH INSPIRATIF SECTION - SATU CARD ==================== -->
+        <div class="tokoh-section" id="tokoh" data-aos="fade-up">
+            <div class="tokoh-header">
+                <h2><i class="fas fa-star" style="color: var(--primary);"></i> Tokoh Inspiratif Tipe Insting</h2>
+                <span class="tokoh-badge">Mesin Kecerdasan In</span>
+            </div>
+            
+            <!-- FOTO UTAMA - DIPERKECIL 60% -->
+            <div class="tokoh-featured-container">
+                <div class="tokoh-featured-image">
+                    <img src="insting-1024x576.jpg" alt="Mesin Kecerdasan Insting - Tokoh Inspiratif" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=img-placeholder data-text=\'Gambar Tokoh Inspiratif Insting\'></div>';">
+                </div>
+            </div>
+            
+            <p class="tokoh-description">Para tokoh dengan Mesin Kecerdasan Insting yang menginspirasi dunia dengan naluri tajam, kemampuan adaptasi, dan jiwa pengabdian mereka.</p>
+            
+            <!-- SATU CARD UNTUK INSTING -->
+            <div class="tokoh-card-container">
+                <div class="tokoh-card in" data-aos="fade-up">
+                    <div class="type-title">
+                        <i class="fas fa-user-tie"></i> Insting
+                    </div>
+                    
+                    <div class="traits-grid-dua-kolom">
+                        <!-- Kolom 1 -->
+                        <div class="traits-kolom">
+                            <h4>Sifat Khas Insting</h4>
+                            <div class="traits-cloud">
+                                <span class="trait-cloud-item">Balanced</span>
+                                <span class="trait-cloud-item">Compromising</span>
+                                <span class="trait-cloud-item">Peaceful</span>
+                                <span class="trait-cloud-item">Resourceful</span>
+                                <span class="trait-cloud-item">Simple</span>
+                                <span class="trait-cloud-item">Forgiving</span>
+                                <span class="trait-cloud-item">Occupied</span>
+                                <span class="trait-cloud-item">Flowing</span>
+                                <span class="trait-cloud-item">Smooth</span>
+                                <span class="trait-cloud-item">Intermediary</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Kolom 2 -->
+                        <div class="traits-kolom">
+                            <h4>Karakter Lainnya</h4>
+                            <div class="traits-cloud">
+                                <span class="trait-cloud-item">Mediator</span>
+                                <span class="trait-cloud-item">Pencerah</span>
+                                <span class="trait-cloud-item">Spiritualis</span>
+                                <span class="trait-cloud-item">Adaptif</span>
+                                <span class="trait-cloud-item">Reflektif</span>
+                                <span class="trait-cloud-item">Naluri Tajam</span>
+                                <span class="trait-cloud-item">Tenang</span>
+                                <span class="trait-cloud-item">Damai</span>
+                                <span class="trait-cloud-item">Bijaksana</span>
+                                <span class="trait-cloud-item">Sederhana</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tokoh-quote-container">
+                        <div class="tokoh-quote">
+                            <p><strong>W.S. Rendra</strong> - Budayawan dan penyair. Kemampuannya merespon situasi sosial dengan karya-karya yang tajam dan reflektif menunjukkan kepekaan naluri yang tinggi.</p>
+                            <p style="margin-top: 8px;"><strong>Gus Dur (Abdurrahman Wahid)</strong> - Presiden RI ke-4. Kecerdasan nalurinya dalam membaca situasi dan mengambil keputusan spontan menjadikannya tokoh yang disegani.</p>
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        
+                        <div class="tokoh-quote">
+                            <p><strong>Empu Tantular</strong> - Pujangga besar Majapahit. Karyanya "Kakawin Sutasoma" dengan semboyan "Bhinneka Tunggal Ika" menunjukkan kemampuan merangkai kebijaksanaan dari berbagai sumber.</p>
+                            <p style="margin-top: 8px;"><strong>Para Mediator dan Diplomat</strong> - Mereka yang mampu menjadi penengah konflik dengan naluri dan kebijaksanaan.</p>
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="tokoh-footer">
+                        <i class="fas fa-lightbulb" style="color: var(--primary);"></i> Mereka membuktikan bahwa kekuatan Insting (naluri, adaptasi, dan pengabdian) dapat menciptakan kedamaian dan keseimbangan.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== APA ITU INSTING? ==================== -->
+        <div class="apa-itu-section" style="background: #fff5f5; border-radius: 40px; padding: 30px; margin: 30px 0;" data-aos="fade-up">
+            <h2 class="section-title center">Apa Itu Tipe Insting?</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1rem;">Insting adalah <strong>Mesin Kecerdasan berbasis naluri dan refleks</strong>. Mereka memproses dunia dengan spontanitas dan kemampuan adaptasi yang tinggi. Tidak seperti tipe lainnya, Insting tidak memiliki kemudi introvert atau extrovert, sehingga bekerja secara otomatis. Mereka adalah sosok yang seimbang, damai, dan selalu siap menjadi penengah dalam setiap situasi.</p>
+
+            <!-- Diagram Otak Sederhana -->
+            <div class="brain-insting" style="margin-top: 30px;" data-aos="zoom-in">
+                <h2 class="text-center"><i class="fas fa-brain"></i> Sistem Operasi: Otak Tengah</h2>
+                <div class="brain-highlight">
+                    <div class="letter">In</div>
+                    <div class="desc">
+                        <p><i class="fas fa-location-dot"></i> <strong>Lokasi:</strong> Otak tengah (menghubungkan keempat belahan otak)</p>
+                        <p><i class="fas fa-weight-scale"></i> <strong>Kepadatan:</strong> Tidak memiliki lapisan putih/abu-abu</p>
+                        <p><i class="fas fa-arrow-right"></i> <strong>Cara Kerja:</strong> Otomatis, spontan, tanpa kemudi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== SIFAT KHAS INSTING ==================== -->
+        <h2 class="section-title" data-aos="fade-up">🔟 Sifat Khas Insting</h2>
+        <p data-aos="fade-up" style="font-size: 0.95rem;">Menurut konsep STIFIn, berikut adalah sifat-sifat yang melekat pada kepribadian Insting.</p>
+
+        <div class="traits-grid">
+            <div class="trait-card" data-aos="flip-left"><div class="trait-icon"><i class="fas fa-scale-balanced"></i></div><div class="trait-title">Balanced</div><div class="trait-desc">Seimbang & Harmonis</div></div>
+            <div class="trait-card" data-aos="flip-left" data-aos-delay="50"><div class="trait-icon"><i class="fas fa-handshake"></i></div><div class="trait-title">Compromising</div><div class="trait-desc">Mudah berkompromi</div></div>
+            <div class="trait-card" data-aos="flip-left" data-aos-delay="100"><div class="trait-icon"><i class="fas fa-dove"></i></div><div class="trait-title">Peaceful</div><div class="trait-desc">Mencintai kedamaian</div></div>
+            <div class="trait-card" data-aos="flip-left" data-aos-delay="150"><div class="trait-icon"><i class="fas fa-toolbox"></i></div><div class="trait-title">Resourceful</div><div class="trait-desc">Serba bisa</div></div>
+            <div class="trait-card" data-aos="flip-left" data-aos-delay="200"><div class="trait-icon"><i class="fas fa-leaf"></i></div><div class="trait-title">Simple</div><div class="trait-desc">Sederhana</div></div>
+            <div class="trait-card" data-aos="flip-left" data-aos-delay="250"><div class="trait-icon"><i class="fas fa-heart"></i></div><div class="trait-title">Forgiving</div><div class="trait-desc">Pemaaf</div></div>
+            <div class="trait-card" data-aos="flip-left" data-aos-delay="300"><div class="trait-icon"><i class="fas fa-clock"></i></div><div class="trait-title">Occupied</div><div class="trait-desc">Selalu sibuk</div></div>
+            <div class="trait-card" data-aos="flip-left" data-aos-delay="350"><div class="trait-icon"><i class="fas fa-water"></i></div><div class="trait-title">Flowing</div><div class="trait-desc">Mengalir</div></div>
+            <div class="trait-card" data-aos="flip-left" data-aos-delay="400"><div class="trait-icon"><i class="fas fa-feather"></i></div><div class="trait-title">Smooth</div><div class="trait-desc">Halus & Lembut</div></div>
+            <div class="trait-card" data-aos="flip-left" data-aos-delay="450"><div class="trait-icon"><i class="fas fa-hand"></i></div><div class="trait-title">Intermediary</div><div class="trait-desc">Penengah</div></div>
+        </div>
+
+        <!-- ==================== KARIR & PROFESI ==================== -->
+        <h2 class="section-title" id="profesi" data-aos="fade-up">💼 Pilihan Profesi untuk Insting</h2>
+        <div class="info-card" data-aos="fade-up">
+            <h3><i class="fas fa-bullseye"></i> 5 Industri Utama untuk Tipe In</h3>
+            <div class="info-grid">
+                <div class="info-grid-item"><strong>🎵 Musik</strong><br>Musisi, Penyanyi, Komposer</div>
+                <div class="info-grid-item"><strong>🍳 Kuliner</strong><br>Chef, Restaurateur, Food Stylist</div>
+                <div class="info-grid-item"><strong>🙏 Religi</strong><br>Pemuka Agama, Spiritualis, Tokoh Adat</div>
+                <div class="info-grid-item"><strong>🎭 Performance</strong><br>Aktor, Penari, Entertainer</div>
+                <div class="info-grid-item"><strong>🤝 Jasa</strong><br>Mediator, Konselor, Pelayan Masyarakat</div>
+            </div>
+        </div>
+
+        <p style="font-size: 0.95rem;"><strong>Contoh profesi lainnya:</strong> Pembalap, Entertainer, Agamawan, Aktivis, Jurnalis, Pengetahuan Umum, Performance, Spiritualis, Birokrat, Pelayan Masyarakat, Mediator, Tangan Kanan untuk semua posisi, Kolumnis, Generalis, Presenter serba-bisa, Atlit serba-bisa, Chef, Budayawan, Diplomat, dan berbagai profesi yang membutuhkan adaptasi tinggi.</p>
+
+        <!-- Tags Profesi -->
+        <div class="profesi-tags">
+            <span class="profesi-tag">Musisi</span><span class="profesi-tag">Chef</span><span class="profesi-tag">Aktor</span><span class="profesi-tag">Mediator</span><span class="profesi-tag">Spiritualis</span><span class="profesi-tag">Pembalap</span><span class="profesi-tag">Jurnalis</span><span class="profesi-tag">Aktivis</span><span class="profesi-tag">Birokrat</span><span class="profesi-tag">Presenter</span><span class="profesi-tag">Atlit</span><span class="profesi-tag">Budayawan</span><span class="profesi-tag">Diplomat</span><span class="profesi-tag">Konselor</span><span class="profesi-tag">Penari</span><span class="profesi-tag">Entertainer</span><span class="profesi-tag">Generalis</span><span class="profesi-tag">Tangan Kanan</span><span class="profesi-tag">Kolumnis</span>
+        </div>
+
+        <!-- ==================== QUOTE PENTING ==================== -->
+        <div class="stifin-quote" data-aos="zoom-in">
+            <i class="fas fa-quote-left"></i>
+            Tipe Insting: Seimbang, Adaptif, Berkorban, dan Spontan.
+            <span class="source">— Kata Kunci STIFIn untuk Insting</span>
+        </div>
+
+        <!-- ==================== BAGIAN IN (INSTING) ==================== -->
+        <h2 class="section-title" id="in" data-aos="fade-up">Insting (In) <span style="font-size: 0.9rem; color: var(--gray-500);">Otak Tengah - Tanpa Kemudi</span></h2>
+        <div class="type-card in" data-aos="fade-up">
+            <div class="type-header">
+                <span class="type-letter">In</span>
+                <span class="type-name">Insting</span>
+            </div>
+            <p style="font-size: 0.95rem;"><strong>Sistem operasi:</strong> Otomatis tanpa kemudi. In memiliki kemampuan untuk merespon secara spontan dan holistik. Mereka adalah penyeimbang alami yang mampu mengakses keempat belahan otak lainnya dengan baik.</p>
+            
+            <div style="display: flex; gap: 16px; flex-wrap: wrap; margin: 16px 0;">
+                <div style="flex: 1; min-width: 180px;">
+                    <h4 style="font-size: 1rem; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #b45309;"></i> Kelebihan Utama:</h4>
+                    <ul class="custom-list">
+                        <li><i class="fas fa-check"></i> Altruist tinggi (AQ)</li>
+                        <li><i class="fas fa-check"></i> Reflek cepat dan tepat</li>
+                        <li><i class="fas fa-check"></i> Adaptif di segala situasi</li>
+                        <li><i class="fas fa-check"></i> Mediator alami</li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 180px;">
+                    <h4 style="font-size: 1rem; margin-bottom: 8px;"><i class="fas fa-bolt" style="color: #b45309;"></i> Kemistri & Target:</h4>
+                    <p style="font-size: 0.9rem;">In memiliki panggilan jiwa untuk selalu bahagia dengan cara berkontribusi dan berperan bagi sesama. Mereka cocok menjadi <strong>mitra, mediator, atau tangan kanan</strong> yang mampu menyeimbangkan berbagai situasi.</p>
+                </div>
+            </div>
+
+            <h4 style="font-size: 1rem; margin-bottom: 8px;">Cara Belajar In:</h4>
+            <p style="font-size: 0.9rem;">Belajar dengan pola deduktif - mencari kesimpulan terlebih dahulu, baru kemudian mempelajari detailnya. Mereka perlu suasana damai dan tenteram, serta pendekatan scaffolding (bimbingan bertahap) untuk mencapai potensi maksimal.</p>
+        </div>
+
+        <!-- ==================== CTA PROMOTOR ==================== -->
+        <div class="cta-bottom" data-aos="fade-up">
+            <h2>Ingin Tahu Lebih Dalam Tentang Tipe Insting-mu?</h2>
+            <p style="font-size: 0.95rem;">Konsultasikan hasil tes STIFIn-mu dengan promotor berpengalaman. Kami siap membantu kamu memahami potensi genetikmu untuk karir, pendidikan, dan hubungan.</p>
+            <a href="https://wa.link/bcgcw5" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Chat Promotor (Zulfikar Abdu)</a>
+            <p style="margin-top: 16px; font-size: 0.9rem;"><i class="fas fa-phone-alt"></i> Atau hubungi: 0857-7217-5078</p>
+        </div>
+
+        <!-- ==================== FAQ INSTING ==================== -->
+        <div class="faq-section">
+            <h2 class="section-title">FAQ Seputar Tipe Insting</h2>
+            <div class="faq-item">
+                <div class="faq-question"><span>Apakah tipe Insting tidak memiliki pendirian?</span> <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Bukan tidak punya pendirian, mereka justru sangat adaptif. Kemampuan mereka untuk menyesuaikan diri dengan berbagai situasi adalah kekuatan, bukan kelemahan. Mereka mampu menjadi jembatan antara berbagai kepentingan.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Bagaimana cara berkomunikasi dengan tipe Insting?</span> <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Dekati dengan ketulusan dan ciptakan suasana damai. Mereka responsif terhadap kehangatan dan akan membuka diri jika merasa aman. Hindari konflik dan tekanan berlebihan.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Apakah tipe In cocok menjadi pemimpin?</span> <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Mereka lebih cocok menjadi mitra atau tangan kanan daripada pemimpin utama. Namun, sebagai pemimpin, mereka tipe yang demokratis, mengutamakan konsensus, dan mampu menciptakan suasana harmonis dalam tim.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Siapa tokoh terkenal dengan tipe Insting?</span> <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">W.S. Rendra (budayawan), Gus Dur (presiden ke-4), Empu Tantular (pujangga Majapahit). Mereka membuktikan kekuatan Insting dalam menciptakan keseimbangan, kedamaian, dan kebijaksanaan.</div>
+            </div>
+        </div>
+
+    </div> <!-- End container -->
+
+    <!-- ==================== STICKY BOTTOM ==================== -->
+    <div class="sticky-bottom">
+        <div class="sticky-container">
+            <h3><i class="fas fa-headset"></i> Konsultasi Gratis</h3>
+            <a href="https://wa.link/bcgcw5" target="_blank" class="btn-wa-sticky"><i class="fab fa-whatsapp"></i> Tanya Promotor</a>
+        </div>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="STIFIn.html">
+                        <img src="icon_stifin-1024x531.png" alt="STIFIn Logo" onerror="this.style.display='none';">
+                    </a>
+                    <p>Mengenal potensi genetik untuk hidup yang lebih fokus, satu, dan hebat.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Belajar STIFIn</h4>
+                    <ul>
+                        <li><a href="STIFIn.html">Beranda</a></li>
+                        <li><a href="sensing.html">Tipe Sensing (S)</a></li>
+                        <li><a href="thinking.html">Tipe Thinking (T)</a></li>
+                        <li><a href="intuiting.html">Tipe Intuiting (I)</a></li>
+                        <li><a href="feeling.html">Tipe Feeling (F)</a></li>
+                        <li><a href="insting.html">Tipe Insting (In)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Kontak Kami</h4>
+                    <p><i class="fas fa-envelope"></i> admin@stifingenetic.com</p>
+                    <p><i class="fas fa-phone-alt"></i> 0857-7217-5078</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jakarta Selatan</p>
+                    <div style="display: flex; gap: 12px; margin-top: 16px; justify-content: center;">
+                        <a href="#" style="color: white; font-size: 1.3rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white; font-size: 1.3rem;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Pusat STIFIn - Zulfikar Abdu. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ 
+            duration: 600, 
+            once: true,
+            offset: 30
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                answer.classList.toggle('active');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+    <!-- Extra space for sticky bottom -->
+    <div style="height: 60px;"></div>
+</body>
+</html>
